@@ -1,0 +1,10 @@
+{urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0}AdministrativeBoundary
+{urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0}AdministrativeUnit
+{urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0}Condominium
+{urn:x-inspire:specification:gmlas:BaseTypes:3.2}SpatialDataSet
+{urn:x-inspire:specification:gmlas:CadastralParcels:3.0}BasicPropertyUnit
+{urn:x-inspire:specification:gmlas:CadastralParcels:3.0}CadastralBoundary
+{urn:x-inspire:specification:gmlas:CadastralParcels:3.0}CadastralParcel
+{urn:x-inspire:specification:gmlas:CadastralParcels:3.0}CadastralZoning
+{urn:x-inspire:specification:gmlas:GeographicalNames:3.0}NamedPlace
+{urn:x-inspire:specification:gmlas:StatisticalUnits:0.0}NUTSRegion
