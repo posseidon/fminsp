@@ -1,0 +1,17 @@
+#
+# PostgreSQL configuration parameters
+#
+
+:fomi:
+    adapter: postgresql
+    host: localhost
+    database: fomi
+    username: fomi
+    password: fomi
+
+:inspire:
+    adapter: postgresql
+    host: localhost
+    database: inspire
+    username: inspire
+    password: inspire

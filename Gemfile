@@ -5,4 +5,11 @@ gemspec
 
 gem 'pg'
 gem 'sequel'
-gem 'rspec'
+gem 'activerecord'
+
+group :development do
+	gem 'rspec'
+	gem 'win32console'
+	gem 'guard-rspec'
+	gem 'rb-notifu'
+end

@@ -1,16 +1,25 @@
 $LOAD_PATH << '../lib/'
-require 'model/dbhandler.rb'
+require 'model/model.rb'
+require 'model/inspirevalidator.rb'
+require 'model/fnt.rb'
 
-describe Model::DbHandler, "#connect" do
+describe Model, "#configuration" do
+	it "should parse database.yml and connect accordingly" do
+		conn = Model.connect('fomi')
+		conn.connected?.should_not be(nil)
+	end
+end
+
+describe InspireValidator, "#connect" do
     it "should returns connection status active" do
-        db = Model::DbHandler.new('alma')
+        db = InspireValidator.new(:inspire)
         db.should_not be(nil)
     end
 end
 
-describe Model::DbHandler, "#inspire_tables" do
+describe InspireValidator, "#inspire_tables" do
 	before do
-		@db = Model::DbHandler.new('alma')
+		@db = InspireValidator.new(:inspire)
 	end
 
 	it "should returns inspire tables" do
