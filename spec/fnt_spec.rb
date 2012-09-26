@@ -8,7 +8,15 @@ require 'model/fnt.rb'
 describe "Fnt", "#initialize" do
 	it "should connect and retrieve data" do
 		Model.connect(:fomi)
-		puts Fnt.count
+		fnt = Fnt.find_by_gid(5936)
+		fnt.should_not be(nil)
+	end
+
+	it "should retrieve gemetry data" do
+		Model.connect(:fomi)
+		fnt = Fnt.find_by_gid(5936)
+		puts fnt.coordinates
+		fnt.should_not be(nil)		
 	end
 end
 

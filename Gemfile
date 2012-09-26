@@ -6,6 +6,7 @@ gemspec
 gem 'pg'
 gem 'sequel'
 gem 'activerecord'
+gem 'spatial_adapter'
 
 group :development do
 	gem 'rspec'
