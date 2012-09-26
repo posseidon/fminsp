@@ -4,8 +4,8 @@ require_relative 'model'
 class InspireValidator
     include Model
 
-	def initialize(database)
-        Model.connect(database)
+	def initialize(connnection_settings = {:adapter => 'postgresql', :host => 'localhost', :database => 'inspire', :username => 'inspire', :password => 'inspire'})
+        @db = ActiveRecord::Base.establish_connection(connnection_settings)
 	end
 
     #private

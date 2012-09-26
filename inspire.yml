@@ -1,0 +1,5 @@
+adapter: postgresql
+host: localhost
+database: inspire
+username: inspire
+password: inspire

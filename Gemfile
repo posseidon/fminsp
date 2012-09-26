@@ -7,6 +7,7 @@ gem 'pg'
 gem 'sequel'
 gem 'activerecord'
 gem 'spatial_adapter'
+gem 'commander'
 
 group :development do
 	gem 'rspec'

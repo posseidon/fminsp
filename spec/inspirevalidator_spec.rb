@@ -5,21 +5,21 @@ require 'model/fnt.rb'
 
 describe Model, "#configuration" do
 	it "should parse database.yml and connect accordingly" do
-		conn = Model.connect('fomi')
-		conn.connected?.should_not be(nil)
+		#conn = Model.connect({:host => 'localhost', :dbname => 'fomi', :username => 'fomi', :password => 'fomi'})
+		#conn.connected?.should_not be(nil)
 	end
 end
 
 describe InspireValidator, "#connect" do
     it "should returns connection status active" do
-        db = InspireValidator.new(:inspire)
+        db = InspireValidator.new({:adapter => 'postgresql', :host => 'localhost', :database => 'inspire', :username => 'inspire', :password => 'inspire'})
         db.should_not be(nil)
     end
 end
 
 describe InspireValidator, "#inspire_tables" do
 	before do
-		@db = InspireValidator.new(:inspire)
+		@db = InspireValidator.new({:adapter => 'postgresql', :host => 'localhost', :database => 'inspire', :username => 'inspire', :password => 'inspire'})
 	end
 
 	it "should returns inspire tables" do

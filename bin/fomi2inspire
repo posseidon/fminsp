@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'commander/import'
+require 'yaml'
+
+$LOAD_PATH << './lib/'
+require 'fomi2inspire.rb'
+
+
+program :version, Fomi2inspire::VERSION
+program :description, 'Transforming FOMI data to INSPIRE'
+ 
+command :check do |c|
+  c.syntax = 'fomi2inspire check [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', ''
+  c.option '-config', 'Connection database.yml file'
+  c.option '-h', 'Remote Database Hostname'
+  c.option '-d', 'Database Name'
+  c.option '-U', 'Database user name'
+  c.option '-P', 'Password'
+  c.action do |args, options|
+    config = {}
+    if options.config
+      config = YAML.load_file(args[0])
+    else
+      config[:adapter] = 'postgresql'
+      config[:host] = args[0]
+      config[:database] = args[1]
+      config[:username] = args[2]
+      config[:password] = args[3]
+    end
+    validator = InspireValidator.new(config)
+    unless validator.inspire_tables?
+      say "Invalid"
+    else
+      say "Valid"
+    end
+  end
+end
+
+command :transform do |c|
+  c.syntax = 'fomi2inspire transform [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.option '--some-switch', 'Some switch that does something'
+  c.action do |args, options|
+    # Do something or c.when_called Fomi2inspire::Commands::Transform
+  end
+end
+
+command :update do |c|
+  c.syntax = 'fomi2inspire update [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.option '--some-switch', 'Some switch that does something'
+  c.action do |args, options|
+    # Do something or c.when_called Fomi2inspire::Commands::Update
+  end
+end
+
