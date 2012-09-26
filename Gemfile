@@ -8,6 +8,7 @@ gem 'sequel'
 gem 'activerecord'
 gem 'spatial_adapter'
 gem 'commander'
+gem 'rainbow'
 
 group :development do
 	gem 'rspec'

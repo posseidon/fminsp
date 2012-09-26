@@ -3,6 +3,7 @@
 require 'rubygems'
 require 'commander/import'
 require 'yaml'
+require 'rainbow'
 
 $LOAD_PATH << './lib/'
 require 'fomi2inspire.rb'
@@ -13,14 +14,12 @@ program :description, 'Transforming FOMI data to INSPIRE'
  
 command :check do |c|
   c.syntax = 'fomi2inspire check [options]'
-  c.summary = ''
-  c.description = ''
+  c.summary = 'Checks if connection to inspire database. Also checks the existance of feature_types and gml_objects tables.'
+  c.description = 'Usage: fomi2inspire check [-config database.yml] or -h hostname -d dbname'
   c.example 'description', ''
-  c.option '-config', 'Connection database.yml file'
+  c.option '-config', 'Connection with database.yml file'
   c.option '-h', 'Remote Database Hostname'
   c.option '-d', 'Database Name'
-  c.option '-U', 'Database user name'
-  c.option '-P', 'Password'
   c.action do |args, options|
     config = {}
     if options.config
@@ -29,14 +28,20 @@ command :check do |c|
       config[:adapter] = 'postgresql'
       config[:host] = args[0]
       config[:database] = args[1]
-      config[:username] = args[2]
-      config[:password] = args[3]
+      config[:username] = ask("Database user name:")
+      config[:password] = ask("Database password:"){ |q|
+        q.echo = "*"
+      }
     end
-    validator = InspireValidator.new(config)
-    unless validator.inspire_tables?
-      say "Invalid"
-    else
-      say "Valid"
+    begin
+      validator = InspireValidator.new(config)
+      unless validator.inspire_tables?
+        puts "Invalid INSPIRE schema in database [#{config[:database]}]\n \t ~> Fix: fomi2inspire setup".foreground(:red)
+      else
+        puts "Valid INSPIRE schema in database: [#{config[:database]}]".foreground(:green)
+      end      
+    rescue Exception => e
+      puts (e.to_s).foreground(:red)
     end
   end
 end
