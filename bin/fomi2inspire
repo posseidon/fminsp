@@ -3,7 +3,6 @@
 require 'rubygems'
 require 'commander/import'
 require 'yaml'
-require 'rainbow'
 
 $LOAD_PATH << './lib/'
 require 'fomi2inspire.rb'
@@ -20,6 +19,9 @@ command :check do |c|
   c.option '-config', 'Connection with database.yml file'
   c.option '-h', 'Remote Database Hostname'
   c.option '-d', 'Database Name'
+  c.option '-sema', 'Schema definition file'
+
+  # Parse options and run command
   c.action do |args, options|
     config = {}
     if options.config
@@ -33,18 +35,43 @@ command :check do |c|
         q.echo = "*"
       }
     end
-    begin
-      validator = InspireValidator.new(config)
-      unless validator.inspire_tables?
-        puts "Invalid INSPIRE schema in database [#{config[:database]}]\n \t ~> Fix: fomi2inspire setup".foreground(:red)
-      else
-        puts "Valid INSPIRE schema in database: [#{config[:database]}]".foreground(:green)
-      end      
-    rescue Exception => e
-      puts (e.to_s).foreground(:red)
-    end
+    Fomi2inspire::check_schema_validity?(config, args[2])
   end
 end
+
+command :setup do |c|
+  c.syntax = 'fomi2inspire setup [options]'
+  c.summary = 'Setup FOMI and/or INSPIRE database with user creation.'
+  c.description = 'Create user, grant wrights on database.'
+  c.example 'description', 'command example'
+  c.option '-h', 'host name'
+  # Parse options and run command
+  c.action do |args, options|
+    config = {}
+    config[:host] = args[0]
+    # Which database to setup?
+    config[:dbname] = ask("New Database name:")
+    puts "Setting up #{config[:dbname]} ...".foreground(:green)
+
+    # Request for DB admin username and password
+    config[:user] = ask("DB Admin username:")
+    config[:password] = ask("DB Admin user password:"){ |q|
+      q.echo = "*"
+    }
+
+    # Request for New role name and password
+    config[:usr] = ask("New role name:")
+    config[:pwd] = ask("New role's password"){|q|
+      q.echo = "*"
+    }
+
+    # Request for postgis_template template name
+    config[:template] = ask("PostGIS template name for new database: #{config[:dbname]}")
+
+    Fomi2inspire::setup_db(config)
+  end
+end
+
 
 command :transform do |c|
   c.syntax = 'fomi2inspire transform [options]'

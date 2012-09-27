@@ -1,0 +1,6 @@
+:role: create role USERNAME with password 'PASSWORD' nosuperuser noinherit createdb login
+:database: create database DBNAME owner USERNAME template=POSTGIS_TEMPLATE
+:grantdatabase: grant all privileges on database DBNAME to USERNAME
+:grantcolumn: grant all privileges on geometry_columns to USERNAME
+:grantgeom: grant all privileges on geography_columns to USERNAME
+:grantspatref: grant all privileges on spatial_ref_sys to USERNAME
