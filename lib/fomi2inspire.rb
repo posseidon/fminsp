@@ -21,14 +21,14 @@ module Fomi2inspire
         return false
       else
         puts "Valid INSPIRE schema in database: [#{config[:database]}]".foreground(:green)
-		self.print_schema_results(true)
-		schema_def_content = Fomi2inspire.read_file(schema_def_file)
-		if validator.feature_types?(schema_def_content)
-			puts "Matched with given schema definition".foreground(:green)
-			Fomi2inspire.print_capability_results(true, schema_def_content)
-		else
-			puts "Unmatched with given schema definition".foreground(:yellow)
-		end
+    		self.print_schema_results(true)
+    		schema_def_content = Fomi2inspire.read_file(schema_def_file)
+    		if validator.feature_types?(schema_def_content)
+    			puts "Matched with given schema definition".foreground(:green)
+    			Fomi2inspire.print_capability_results(true, schema_def_content)
+    		else
+    			puts "Unmatched with given schema definition".foreground(:yellow)
+    		end
         return true
       end      
     rescue Exception => e

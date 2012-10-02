@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'active_record'
 require_relative 'model'
 
 class InspireValidator
