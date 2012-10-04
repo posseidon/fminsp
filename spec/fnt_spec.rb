@@ -13,12 +13,12 @@ describe "Fnt", "#initialize" do
 	end
 
 	it "should connect and retrieve data" do
-		fnt = Fnt.find_by_gid(5936)
+		fnt = Fnt.find_by_objectid(4901)
 		fnt.should_not be(nil)
 	end
 
 	it "should retrieve gemetry data" do
-		fnt = Fnt.find_by_gid(5936)
+		fnt = Fnt.find_by_objectid(4901)
 		fnt.should_not be(nil)		
 	end
 end
@@ -30,7 +30,7 @@ describe "Fnt", "#serialization" do
 	end
 
 	it "should create new dummy data and serialize non-geometry data" do
-		fnt = Fnt.new(:gid => -1, :tipusnev => 'alma', :forrasnev => 'korte', :nev => 'fruits')
+		fnt = Fnt.new(:objectid => -1, :tipusnev => 'alma', :forrasnev => 'korte', :nev => 'fruits')
 		content = ''
 		File.open("spec/simple_fnt.xml", "r"){ |f|
 			content = f.read
@@ -39,7 +39,7 @@ describe "Fnt", "#serialization" do
 	end
 
 	it "should retrieve data and serialize record into xml" do
-		fnt = Fnt.find_by_gid(5936)
+		fnt = Fnt.find_by_objectid(4901)
 		File.open("spec/output.xml","w:UTF-8"){ |f| 
 			f.write(fnt.to_xml)
 		}

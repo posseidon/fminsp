@@ -11,7 +11,7 @@ class Fnt < ActiveRecord::Base
 	    xml = options[:builder] ||= ::Builder::XmlMarkup.new(:indent => options[:indent])
 	    xml.instruct! unless options[:skip_instruct]
 	    xml.fnt do |fnt|
-	    	fnt.id(read_attribute(:gid), :type => "integer")
+	    	fnt.id(read_attribute(:objectid), :type => "integer")
 	    	fnt.name read_attribute(:nev)
 	    	fnt.tipusnev  read_attribute(:tipusnev)
 	    	fnt.forrasnev read_attribute(:forrasnev)
