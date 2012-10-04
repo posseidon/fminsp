@@ -10,6 +10,7 @@ gem 'spatial_adapter'
 gem 'commander'
 gem 'terminal-table'
 gem 'rainbow'
+gem 'builder'
 gem 'libxml-ruby'
 gem 'libxslt-ruby'
 

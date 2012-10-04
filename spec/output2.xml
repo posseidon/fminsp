@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gn:NamedPlace xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="4901">
+  <gn:beginLifespanVersion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="UNKNOWN" xsi:nill="true"/>
+  <gn:endLifespanVersion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="UNKNOWN" xsi:nill="true"/>
+  <gn:geometry>
+    <gml:Point gml:id="4901" srsName="urn:ogc:def:crs:EPSG::4258">
+      <gml:pos>18.437493679211084 46.111833174272014</gml:pos>
+    </gml:Point>
+  </gn:geometry>
+  <gn:inspireId>
+    <base:Identifier xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2">
+      <base:localId>NINCS</base:localId>
+      <base:namespace>HU.FOMI.GN</base:namespace>
+    </base:Identifier>
+  </gn:inspireId>
+  <gn:localType>
+    <gmd:LocalisedCharacterString xmlns:gmd="http://www.isotc211.org/2005/gmd" locale="hu-HU">terület</gmd:LocalisedCharacterString>
+  </gn:localType>
+  <gn:name>
+    <gn:GeographicalName>
+      <gn:language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+      <gn:nativeness>endonym</gn:nativeness>
+      <gn:nameStatus>official</gn:nameStatus>
+      <gn:sourceOfName>Magyarország 1:10 000 méretarányú térképsorozata. Felmérte és kartografálta  a Kartográfiai Vállalat, MN Térképészeti Intézet, Pécsi Geodéziai és Térképé  szeti Vállalat. Sokszorosította a Kartográfiai Vállalat, MN Térképészeti  Intézet. Budapest. 1955--1</gn:sourceOfName>
+      <gn:pronunciation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+      <gn:spelling>
+        <gn:SpellingOfName>
+          <gn:text>Diások</gn:text>
+          <gn:script>Latn</gn:script>
+        </gn:SpellingOfName>
+      </gn:spelling>
+      <gn:grammaticalGender xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+      <gn:grammaticalNumber xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    </gn:GeographicalName>
+  </gn:name>
+  <gn:relatedSpatialObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+  <gn:type>area, different kinds of areal features, territorial units in agriculture and foresty</gn:type>
+</gn:NamedPlace>

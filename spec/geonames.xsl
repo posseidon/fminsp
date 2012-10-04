@@ -64,7 +64,7 @@
       </xsl:element>
 
       <xsl:element name="gn:relatedSpatialObject"><xsl:attribute name="xsi:nil">true</xsl:attribute></xsl:element>
-      <xsl:element name="gn:type"><xsl:value-of select="fnt/tipusnev" /></xsl:element>
+      <xsl:element name="gn:type"><xsl:value-of select="fnt/typename" /></xsl:element>
     </xsl:element>
   </xsl:template>
 </xsl:stylesheet>

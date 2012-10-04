@@ -7,14 +7,14 @@ class Fnt < ActiveRecord::Base
 
 	def to_xml(options = {})
 	    require 'builder'
-	    options[:indent] ||= 2
-	    xml = options[:builder] ||= ::Builder::XmlMarkup.new(:indent => options[:indent])
-	    xml.instruct! unless options[:skip_instruct]
+	    xml = Builder::XmlMarkup.new
+	    xml.instruct!(:xml, :encoding => "UTF-8")
 	    xml.fnt do |fnt|
 	    	fnt.id(read_attribute(:objectid), :type => "integer")
-	    	fnt.name read_attribute(:nev)
-	    	fnt.tipusnev  read_attribute(:tipusnev)
-	    	fnt.forrasnev read_attribute(:forrasnev)
+	    	fnt.nev { |x| x << self.nev }
+	    	fnt.tipusnev { |x| x << self.tipusnev }
+	    	fnt.typename { |x| x << self.typename }
+	    	fnt.forrasnev { |x| x << self.forrasnev }
 	    	unless read_attribute(:geometria).nil?
 	    		geometry = read_attribute(:geometria)
 	    		fnt.geometria (geometry.x.to_s + " " + geometry.y.to_s)

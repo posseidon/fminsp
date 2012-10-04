@@ -11,9 +11,16 @@ class Transformer
 		@stylesheet = XSLT::Stylesheet.new(@stylesheet_doc)
 	end
 
-	def transform(xml_doc)
-		xml_doc = LibXML::XML::Document.file(xml_doc)
+	def transform_string(xml_str)
+		xml_doc = LibXML::XML::Document.string(xml_str)
+		#xml_doc = LibXML::XML::Document.file(xml_doc)
   		result = @stylesheet.apply(xml_doc)
   		return result
+	end
+
+	def transform_file(xml_file)
+		xml_doc = LibXML::XML::Document.file(xml_file)
+  		result = @stylesheet.apply(xml_doc)
+  		return result		
 	end
 end
