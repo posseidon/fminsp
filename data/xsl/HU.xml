@@ -1,0 +1,9 @@
+<gmd:PT_Locale id="HU" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   xsi:schemaLocation="http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd">
+	<gmd:languageCode> 
+		<gmd:LanguageCode codeListValue="hun" codeList="LanguageCode.xml">Hungarian</gmd:LanguageCode>
+	</gmd:languageCode> 
+	<gmd:characterEncoding> 
+		<gmd:MD_CharacterSetCode codeListValue="utf8" codeList="MD_CharacterSetCode.xml">UTF8</gmd:MD_CharacterSetCode>
+	</gmd:characterEncoding> 
+</gmd:PT_Locale>

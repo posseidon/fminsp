@@ -42,9 +42,9 @@ module Fomi2inspire
   def Fomi2inspire.setup_db(config)
 	# Creating role and database
 	begin
-	  	# Connect to database
-	  	conn = Model.connect(config.slice(:host, :user, :password))
-	  	# Read create_user_db file and substitute with given parameters
+  	# Connect to database
+  	conn = Model.connect(config.slice(:host, :user, :password))
+  	# Read create_user_db file and substitute with given parameters
 		queries = YAML.load_file("data/setup/create_user_db.yml")
 
 		puts "Executing: Creating user role: #{config[:usr]} ...".foreground(:green)
@@ -76,6 +76,13 @@ module Fomi2inspire
 		sql = Fomi2inspire.replace_username_query(queries[:grantspatref], config[:usr])
 		result = conn.exec(sql)
 		puts "Grant all privileges on spatial_ref_sys to #{config[:usr]}".foreground(:yellow)
+
+    #
+    # XSLT table containing xsl documents
+    #
+    sql = "create table xsl(id serial primary key, name varchar(255), data text);"
+    result = conn.exec(sql)
+    
 	rescue Exception => e
 		puts (e.to_s).foreground(:yellow)
 	end
@@ -148,5 +155,13 @@ module Fomi2inspire
 		sql = sql_query.gsub!("USERNAME", username)
   	end
   	return sql
+  end
+
+  def Fomi2inspire.load_xslt()
+    data = ''
+    File.open("./data/xsl/geonames.xsl"){|f|
+      data = f.read
+    }
+    return data
   end
 end

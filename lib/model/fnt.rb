@@ -15,12 +15,14 @@ class Fnt < ActiveRecord::Base
 	    	fnt.tipusnev { |x| x << self.tipusnev }
 	    	fnt.typename { |x| x << self.typename }
 	    	fnt.forrasnev { |x| x << self.forrasnev }
+=begin
 	    	unless read_attribute(:geometria).nil?
 	    		geometry = read_attribute(:geometria)
 	    		fnt.geometria (geometry.x.to_s + " " + geometry.y.to_s)
 	    	else
 	    		fnt.geometria(read_attribute(:geometria),:nil => "true")
 	    	end
+=end
 	    end
 	end
 
