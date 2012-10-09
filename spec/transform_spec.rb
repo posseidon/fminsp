@@ -18,7 +18,8 @@ describe "Transform", "#initialize" do
 	end
 
 end
-
+=end
+=begin
 describe "Transform", "#transforming" do
 	before do
 		@fconfig = YAML.load_file("./data/config/fomi.yml")
@@ -46,7 +47,8 @@ describe "Transform", "#transforming" do
 		end
 		result.should_not be(nil)
 	end
-
+=end
+=begin
 	it "should transform au record into auminunits.xml" do
 		begin
 			admin_units = Au.find_by_objectid(74)
@@ -55,6 +57,11 @@ describe "Transform", "#transforming" do
 			File.open("spec/output3.xml","w:UTF-8"){ |f| 
 				f.write(result)
 			}
+			config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
+			con = Model.new(config)
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{admin_units.shn}', 1, '#{result}', ST_GeometryFromText('#{admin_units.geom.as_wkt}'))"
+			result = con.insert(query)
+			puts result
 			result.should_not be(nil)
 		rescue Exception => e
 			puts "-----------------------"
@@ -72,6 +79,7 @@ describe "Transform", "#transforming" do
 
 end
 =end
+
 describe "Transform", "#load" do
 =begin
 	it "should insert transformed geographicalnames data into database" do
@@ -84,11 +92,11 @@ describe "Transform", "#load" do
 		
 		Fnt.all.each {|record|
 			result = @fnt.transform_string(record.xml)
-			query = "insert into gml_objects(gml_id, ft_type, binary_object) values(#{record.objectid}, 8, '#{result}')"
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values(#{record.objectid}, 8, '#{result}', ST_GeometryFromText('#{record.geometria.as_wkt}'))"
 			con.insert(query)
 		}
 	end
-=end
+
 	it "should insert transformed adminunits data into database" do
 		@fconfig = YAML.load_file("./data/config/fomi.yml")
 		@fomi = ActiveRecord::Base.establish_connection(@fconfig)
@@ -100,9 +108,9 @@ describe "Transform", "#load" do
 		
 		Au.all.each {|record|
 			result = @au.transform_string(record.data)
-			query = "insert into gml_objects(gml_id, ft_type, binary_object) values(#{record.objectid}, 1, '#{result}')"
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.shn}', 1, '#{result}', ST_GeometryFromText('#{record.geom.as_wkt}'))"
 			con.insert(query)
 		}
 	end
-
+=end
 end

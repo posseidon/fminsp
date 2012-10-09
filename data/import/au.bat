@@ -8,4 +8,5 @@ shp2pgsql -s 4258 -g geom -D -I  -W LATIN1 -N abort AU_4.shp > AU_4.sql
 psql -d fomi -U fomi -f AU_4.sql
 shp2pgsql -s 4258 -g geom -D -I  -W LATIN1 -N abort AU_5.shp > AU_5.sql
 psql -d fomi -U fomi -f AU_5.sql
+
 psql -d fomi -U fomi -f au.sql

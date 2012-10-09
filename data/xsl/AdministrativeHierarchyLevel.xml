@@ -49,7 +49,7 @@
 	<dictionaryEntry>
 		<Definition gml:id="_25289_44039">
 			<description>-- Definition --
-				Micro-county level in the national administrative hierarchy.
+				Micro-region level in the national administrative hierarchy.
 			</description>
 			<identifier
 					codeSpace="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0/AdministrativeHierarchyLevel">

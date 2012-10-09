@@ -32,13 +32,13 @@
 
 				<!-- Generate (complex) MultiSurface geometry -->
 				<AU:geometry>
-					<xsl:copy-of select="adminunits/geometria"/>
-					<!-- This is locally specific -->
+					<xsl:copy-of select="adminunits/geometria/*"/>
 					<!--
-					<xsl:call-template name="createMultiSurface">
+					<xsl:call-template name="LOFASZ"/>
 						<xsl:with-param name="id">
-							<xsl:value-of select="$gmlId"/>
+							<xsl:copy select="adminunits/id"/>
 						</xsl:with-param>
+						<xsl:copy select="adminunits/geometria"/>
 					</xsl:call-template>
 					-->
 				</AU:geometry>
