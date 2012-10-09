@@ -18,55 +18,58 @@
 		<xsl:param name="nationalLevelName"/>
 
 		<!-- Create gml Id by concatenating idPrefix and local id -->
-		<xsl:variable name="gmlId"><xsl:value-of select="concat($idPrefix,'.',$localId)"/></xsl:variable>
+		<xsl:variable name="gmlId"><xsl:value-of select="adminunits/id"/></xsl:variable>
 
 		<base:member>
 			<AU:AdministrativeUnit gml:id="{$gmlId}">
 
 				<xsl:call-template name="GML.Identifier">
 					<xsl:with-param name="id">
-						<xsl:value-of select="$gmlId"/>
+						<xsl:value-of select="adminunits/id"/>
 					</xsl:with-param>
 				</xsl:call-template>
 
 
 				<!-- Generate (complex) MultiSurface geometry -->
 				<AU:geometry>
+					<xsl:copy-of select="adminunits/geometria"/>
 					<!-- This is locally specific -->
+					<!--
 					<xsl:call-template name="createMultiSurface">
 						<xsl:with-param name="id">
 							<xsl:value-of select="$gmlId"/>
 						</xsl:with-param>
 					</xsl:call-template>
+					-->
 				</AU:geometry>
 
 				<!-- Local code e.g. numeric code for municipality-->
 				<AU:nationalCode>
-					<xsl:value-of select="$localId"/>
+					<xsl:value-of select="adminunits/natcode"/>
 				</AU:nationalCode>
 
 				<!-- Generate INSPIRE id -->
 				<AU:inspireId>
 					<xsl:call-template name="Base.InspireId">
 						<xsl:with-param name="localId">
-							<xsl:value-of select="$localId"/>
+							<xsl:value-of select="adminunits/natcode"/>
 						</xsl:with-param>
 						<xsl:with-param name="idPrefix">
-							<xsl:value-of select="$idPrefix"/>
+							HU.FOMI.AU
 						</xsl:with-param>
 					</xsl:call-template>
 				</AU:inspireId>
 
 				<!-- nationalLevel is one of {1thOrder, 2ndOrder, ...} -->
 				<AU:nationalLevel codeSpace="{$adminHierarchyCodeSpace}">
-					<xsl:value-of select="$nationalLevel"/>
+					<xsl:value-of select="adminunits/level"/>
 				</AU:nationalLevel>
 
 				<!-- Local name for nationalLevel e.g. "gemeente", "provincie"-->
 				<AU:nationalLevelName>
 					<xsl:call-template name="GMD.LocalisedCharacterString">
 						<xsl:with-param name="value">
-							<xsl:value-of select="$nationalLevelName"/>
+							<xsl:value-of select="adminunits/levelname"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</AU:nationalLevelName>
@@ -80,7 +83,7 @@
 					<!-- Generate minimal GeographicalName -->
 					<xsl:call-template name="GN.GeographicalName.Minimal">
 						<xsl:with-param name="name">
-							<xsl:value-of select="$name"/>
+							<xsl:value-of select="adminunits/name"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</AU:name>
