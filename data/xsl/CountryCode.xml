@@ -2,15 +2,15 @@
 <Dictionary xmlns="http://www.opengis.net/gml/3.2" xmlns:gml="http://www.opengis.net/gml/3.2"
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="CountryCode"
 			xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd">
-	<description>-- Definition --&#13;
+	<description>-- Definition --
 		Country code as defined in the Interinstitutional style guide published by the Publications Office of the
-		European Union.&#13;
+		European Union.
 	</description>
 	<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2">CountryCode</identifier>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44676">
-			<description>-- Definition --&#13;
-				Belgium&#13;
+			<description>-- Definition --
+				Belgium
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">BE</identifier>
 			<name>BE</name>
@@ -18,8 +18,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44677">
-			<description>-- Definition --&#13;
-				Bulgaria&#13;
+			<description>-- Definition --
+				Bulgaria
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">BG</identifier>
 			<name>BG</name>
@@ -27,8 +27,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44678">
-			<description>-- Definition --&#13;
-				Czech Republic&#13;
+			<description>-- Definition --
+				Czech Republic
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">CZ</identifier>
 			<name>CZ</name>
@@ -36,8 +36,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44679">
-			<description>-- Definition --&#13;
-				Denmark&#13;
+			<description>-- Definition --
+				Denmark
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">DK</identifier>
 			<name>DK</name>
@@ -45,8 +45,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44680">
-			<description>-- Definition --&#13;
-				Germany&#13;
+			<description>-- Definition --
+				Germany
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">DE</identifier>
 			<name>DE</name>
@@ -54,8 +54,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44681">
-			<description>-- Definition --&#13;
-				Estonia&#13;
+			<description>-- Definition --
+				Estonia
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">EE</identifier>
 			<name>EE</name>
@@ -63,8 +63,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44682">
-			<description>-- Definition --&#13;
-				Ireland&#13;
+			<description>-- Definition --
+				Ireland
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">IE</identifier>
 			<name>IE</name>
@@ -72,8 +72,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44683">
-			<description>-- Definition --&#13;
-				Greece&#13;
+			<description>-- Definition --
+				Greece
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">EL</identifier>
 			<name>EL</name>
@@ -81,8 +81,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44684">
-			<description>-- Definition --&#13;
-				Spain&#13;
+			<description>-- Definition --
+				Spain
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">ES</identifier>
 			<name>ES</name>
@@ -90,8 +90,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44685">
-			<description>-- Definition --&#13;
-				France&#13;
+			<description>-- Definition --
+				France
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">FR</identifier>
 			<name>FR</name>
@@ -99,8 +99,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44686">
-			<description>-- Definition --&#13;
-				Italy&#13;
+			<description>-- Definition --
+				Italy
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">IT</identifier>
 			<name>IT</name>
@@ -108,8 +108,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44687">
-			<description>-- Definition --&#13;
-				Cyprus&#13;
+			<description>-- Definition --
+				Cyprus
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">CY</identifier>
 			<name>CY</name>
@@ -117,8 +117,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44688">
-			<description>-- Definition --&#13;
-				Latvia&#13;
+			<description>-- Definition --
+				Latvia
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">LV</identifier>
 			<name>LV</name>
@@ -126,8 +126,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44689">
-			<description>-- Definition --&#13;
-				Lithuania&#13;
+			<description>-- Definition --
+				Lithuania
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">LT</identifier>
 			<name>LT</name>
@@ -135,8 +135,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44690">
-			<description>-- Definition --&#13;
-				Luxembourg&#13;
+			<description>-- Definition --
+				Luxembourg
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">LU</identifier>
 			<name>LU</name>
@@ -144,8 +144,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44691">
-			<description>-- Definition --&#13;
-				Hungary&#13;
+			<description>-- Definition --
+				Hungary
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">HU</identifier>
 			<name>HU</name>
@@ -153,8 +153,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44692">
-			<description>-- Definition --&#13;
-				Malta&#13;
+			<description>-- Definition --
+				Malta
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">MT</identifier>
 			<name>MT</name>
@@ -162,8 +162,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44693">
-			<description>-- Definition --&#13;
-				Netherlands&#13;
+			<description>-- Definition --
+				Netherlands
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">NL</identifier>
 			<name>NL</name>
@@ -171,8 +171,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44694">
-			<description>-- Definition --&#13;
-				Austria&#13;
+			<description>-- Definition --
+				Austria
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">AT</identifier>
 			<name>AT</name>
@@ -180,8 +180,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44695">
-			<description>-- Definition --&#13;
-				Poland&#13;
+			<description>-- Definition --
+				Poland
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">PL</identifier>
 			<name>PL</name>
@@ -189,8 +189,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44696">
-			<description>-- Definition --&#13;
-				Portugal&#13;
+			<description>-- Definition --
+				Portugal
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">PT</identifier>
 			<name>PT</name>
@@ -198,8 +198,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44697">
-			<description>-- Definition --&#13;
-				Romania&#13;
+			<description>-- Definition --
+				Romania
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">RO</identifier>
 			<name>RO</name>
@@ -207,8 +207,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44698">
-			<description>-- Definition --&#13;
-				Slovenia&#13;
+			<description>-- Definition --
+				Slovenia
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">SI</identifier>
 			<name>SI</name>
@@ -216,8 +216,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44699">
-			<description>-- Definition --&#13;
-				Slovakia&#13;
+			<description>-- Definition --
+				Slovakia
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">SK</identifier>
 			<name>SK</name>
@@ -225,8 +225,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44700">
-			<description>-- Definition --&#13;
-				Finland&#13;
+			<description>-- Definition --
+				Finland
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">FI</identifier>
 			<name>FI</name>
@@ -234,8 +234,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44701">
-			<description>-- Definition --&#13;
-				Sweden&#13;
+			<description>-- Definition --
+				Sweden
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">SE</identifier>
 			<name>SE</name>
@@ -243,8 +243,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44702">
-			<description>-- Definition --&#13;
-				United Kingdom&#13;
+			<description>-- Definition --
+				United Kingdom
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">UK</identifier>
 			<name>UK</name>
@@ -252,8 +252,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44703">
-			<description>-- Definition --&#13;
-				Croatia&#13;
+			<description>-- Definition --
+				Croatia
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">HR</identifier>
 			<name>HR</name>
@@ -261,8 +261,8 @@
 	</dictionaryEntry>
 	<dictionaryEntry>
 		<Definition gml:id="_25936_44704">
-			<description>-- Definition --&#13;
-				Turkey&#13;
+			<description>-- Definition --
+				Turkey
 			</description>
 			<identifier codeSpace="urn:x-inspire:specification:gmlas:BaseTypes:3.2/CountryCode">TR</identifier>
 			<name>TR</name>

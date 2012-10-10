@@ -5,14 +5,14 @@
 	<codeEntry>
 		<CodeDefinition gml:id="LanguageCode_English">
 			<gml:description>English</gml:description>
-			<gml:identifier codeSpace="http://schemas.kademo.nl/etc/LanguageCode.xml">eng</gml:identifier>
+			<gml:identifier codeSpace="LanguageCode.xml">eng</gml:identifier>
 
 		</CodeDefinition>
 	</codeEntry>
 	<codeEntry>
-		<CodeDefinition gml:id="LanguageCode_Dutch">
+		<CodeDefinition gml:id="LanguageCode_Hungarian">
 			<gml:description>Magyar</gml:description>
-			<gml:identifier codeSpace="http://schemas.kademo.nl/etc/LanguageCode.xml">hun</gml:identifier>
+			<gml:identifier codeSpace="LanguageCode.xml">hun</gml:identifier>
 		</CodeDefinition>
 	</codeEntry>
 

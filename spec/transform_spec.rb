@@ -7,6 +7,8 @@ require 'model/model.rb'
 require 'model/transformer.rb'
 require 'model/fnt.rb'
 require 'model/au.rb'
+require 'model/cadastralk.rb'
+require 'model/cadastralm.rb'
 
 =begin
 describe "Transform", "#initialize" do
@@ -29,6 +31,7 @@ describe "Transform", "#transforming" do
 		#@fnt = Transformer.new("./spec/geonames.xsl")
 		@fnt = Transformer.new("./data/xsl/GeographicalNames_HU.xsl")
 		@au = Transformer.new("./data/xsl/AdministrativeUnits_HU.xsl")
+		@cad = Transformer.new("./data/xsl/CadastralParcels_HU.xsl")
 		#@foss_xsl = Transformer.new("./data/xsl/GeographicalNames.xsl")
 	end
 
@@ -47,8 +50,7 @@ describe "Transform", "#transforming" do
 		end
 		result.should_not be(nil)
 	end
-=end
-=begin
+
 	it "should transform au record into auminunits.xml" do
 		begin
 			admin_units = Au.find_by_objectid(74)
@@ -70,13 +72,34 @@ describe "Transform", "#transforming" do
 		end
 	end
 
-
 	it "should validate resulted gml by xsd" do
 		result = @fnt.validate_file("data/xsd/GeographicalNames.xsd","spec/output2.xml")
 		puts result
 		result.should_not be(nil)		
 	end
 
+	it "should transform cadastral record into cadastral.xml" do
+		begin
+
+			kozterulet = Cadastralk.find_by_parcel_id(238)
+			maganterulet = Cadastralm.find_by_parcel_id(913)
+			result = @cad.transform_string(kozterulet.xml)
+			File.open("spec/output4.xml","w:UTF-8"){ |f| 
+				f.write(result)
+			}
+			result = @cad.transform_string(maganterulet.xml)
+			File.open("spec/output5.xml","w:UTF-8"){ |f| 
+				f.write(result)
+			}
+
+			(maganterulet.hrsz).should eq("0188/11")
+			(kozterulet.hrsz).should eq("628")
+		rescue Exception => e
+			puts "-----------------------"
+			puts e
+			puts "-----------------------"
+		end		
+	end
 end
 =end
 
@@ -113,4 +136,26 @@ describe "Transform", "#load" do
 		}
 	end
 =end
+	it "should insert transformed adminunits data into database" do
+		@fconfig = YAML.load_file("./data/config/fomi.yml")
+		@fomi = ActiveRecord::Base.establish_connection(@fconfig)
+		@cad = Transformer.new("./data/xsl/CadastralParcels_HU.xsl")
+
+
+		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
+		con = Model.new(config)
+		
+		Cadastralk.all.each {|record|
+			result = @cad.transform_string(record.xml)
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.parcel_id}-#{record.hrsz}', 6, '#{result}', ST_GeometryFromText('#{record.geom.as_wkt}'))"
+			con.insert(query)
+		}
+
+		Cadastralm.all.each {|record|
+			result = @cad.transform_string(record.xml)
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.parcel_id}-#{record.hrsz}', 6, '#{result}', ST_GeometryFromText('#{record.geom.as_wkt}'))"
+			con.insert(query)
+		}
+
+	end
 end
