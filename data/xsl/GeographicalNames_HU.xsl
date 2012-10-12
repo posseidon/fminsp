@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-        xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2"
-        xmlns:gmd="http://www.isotc211.org/2005/gmd"
-        xmlns:gml="http://www.opengis.net/gml/3.2"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:GN="urn:x-inspire:specification:gmlas:GeographicalNames:3.0">
+<xsl:stylesheet version="1.0" 
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:GN="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" >
 
 <xsl:include href="common.xsl"/>
 
   <!-- Generate NamedPlace element -->
-  <xsl:template name="GN.NamedPlace" priority="1" match="/">
+  <xsl:template name="GN.NamedPlace" priority="1" match="/" 
+    xmlns:gml="http://www.opengis.net/gml/3.2/3.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <xsl:param name="idPrefix"/>
     <xsl:param name="localId"/>
     <xsl:param name="point"/>
@@ -23,7 +20,7 @@
     <xsl:variable name="gmlId"><xsl:value-of select="fnt/id" /></xsl:variable>
     <xsl:variable name="pointId"><xsl:value-of select="fnt/id" /></xsl:variable>
 
-    <base:member>
+    <base:member xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2">
       <GN:NamedPlace gml:id="{$gmlId}">
 
         <xsl:call-template name="GML.Identifier">
@@ -81,7 +78,7 @@
   </xsl:template>
 
   <!-- Generate minimal GeographicalName element -->
-  <xsl:template name="GN.GeographicalName.Minimal" priority="1">
+  <xsl:template name="GN.GeographicalName.Minimal" priority="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <xsl:param name="name"/>
     <xsl:param name="nativeness" select="'endonym'"/>
     <xsl:param name="nameStatus" select="'official'"/>

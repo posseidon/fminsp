@@ -18,7 +18,6 @@
 		<!-- Create gml Id by concatenating idPrefix and local id -->
 		<xsl:variable name="gmlId"><xsl:value-of select="concat('HU.FOMI.CP','.',cadastral/natref)"/></xsl:variable>
 
-		<base:member>
 			<CP:CadastralParcel gml:id="{$gmlId}">
 
 				<xsl:call-template name="GML.Identifier">
@@ -68,7 +67,6 @@
 				</CP:nationalCadastralReference>
 
 			</CP:CadastralParcel>
-		</base:member>
 	</xsl:template>
 
 </xsl:stylesheet>

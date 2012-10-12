@@ -27,3 +27,14 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+1. Create database
+
+2. Setup and configure Deegree
+
+3. Import and prepare data
+
+4. Transform and load data
+
+5. Check Deegree services

@@ -102,9 +102,9 @@ describe "Transform", "#transforming" do
 	end
 end
 =end
-
-describe "Transform", "#load" do
 =begin
+describe "Transform", "#load" do
+
 	it "should insert transformed geographicalnames data into database" do
 		@fconfig = YAML.load_file("./data/config/fomi.yml")
 		@fomi = ActiveRecord::Base.establish_connection(@fconfig)
@@ -131,12 +131,13 @@ describe "Transform", "#load" do
 		
 		Au.all.each {|record|
 			result = @au.transform_string(record.data)
-			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.shn}', 1, '#{result}', ST_GeometryFromText('#{record.geom.as_wkt}'))"
+			#query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.shn}', 1, '#{result}', ST_GeometryFromText('#{record.geom.as_wkt}'))"
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('HU.FOMI.AU.74', 1, '#{xml}', ST_GeometryFromText('#{admin_units.env.as_wkt}'))"
 			con.insert(query)
 		}
 	end
-=end
-	it "should insert transformed adminunits data into database" do
+
+	it "should insert transformed cadastral data into database" do
 		@fconfig = YAML.load_file("./data/config/fomi.yml")
 		@fomi = ActiveRecord::Base.establish_connection(@fconfig)
 		@cad = Transformer.new("./data/xsl/CadastralParcels_HU.xsl")
@@ -158,4 +159,58 @@ describe "Transform", "#load" do
 		}
 
 	end
+end
+=end
+
+describe "Transform", "#testing output" do
+=begin
+	before do
+		@fconfig = YAML.load_file("./data/config/fomi.yml")
+		@fomi = ActiveRecord::Base.establish_connection(@fconfig)
+		@fnt = Transformer.new("./data/xsl/GeographicalNames_HU.xsl")
+		@au = Transformer.new("./data/xsl/AdministrativeUnits_HU.xsl")
+	end
+
+	it "should initialize and create a stylesheet according to xls" do
+		begin
+			admin_units = Au.find_by_objectid(74)
+			result = @au.transform_string(admin_units.data)
+			xml = result.to_s(:indent => false).gsub("\n", "")
+			File.open("spec/output3.xml","w:UTF-8"){ |f| 
+				f.write(result)
+			}
+
+
+			config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
+			con = Model.new(config)
+			#query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('HU.FOMI.AU.74', 1, '#{xml}', ST_GeometryFromText('#{(admin_units.geog.bounding_box()).as_wkt}'))"
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{admin_units.shn}', 1, '#{xml}', ST_GeometryFromText('#{admin_units.env.as_wkt}'))"
+			result = con.insert(query)
+			result.should_not be(nil)
+		rescue Exception => e
+			puts "-----------------------"
+			puts e
+			puts "-----------------------"
+		end
+	end
+=end
+
+	it "should insert transformed adminunits data into database" do
+		@fconfig = YAML.load_file("./data/config/fomi.yml")
+		@fomi = ActiveRecord::Base.establish_connection(@fconfig)
+		@au = Transformer.new("./data/xsl/AdministrativeUnits_HU.xsl")
+
+
+		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
+		con = Model.new(config)
+		
+		Au.all.each {|record|
+			result = @au.transform_string(record.data)
+			xml = result.to_s(:indent => false).gsub("\n", "")
+			#query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.shn}', 1, '#{result}', ST_GeometryFromText('#{record.geom.as_wkt}'))"
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.shn}', 1, '#{xml}', ST_GeometryFromText('#{record.env.as_wkt}'))"
+			con.insert(query)
+		}
+	end
+
 end

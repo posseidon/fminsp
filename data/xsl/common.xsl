@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:stylesheet version="1.0"
-				xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2"
-				xmlns:gmd="http://www.isotc211.org/2005/gmd"
-				xmlns:gml="http://www.opengis.net/gml/3.2/3.2"
-				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="constants-hu.xsl"/>
 	<!-- Replace one string with another in specified string. -->
 	<xsl:template name="globalReplace">
@@ -56,7 +51,7 @@
 	</xsl:template>
 
 	<!-- Generate InspireId element -->
-	<xsl:template name="Base.InspireId" priority="1">
+	<xsl:template name="Base.InspireId" priority="1" xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2">
 		<xsl:param name="localId"/>
 		<xsl:param name="idPrefix"/>
 
@@ -71,22 +66,20 @@
 	</xsl:template>
 
 	<!-- Generate gml:identifier element -->
-	<xsl:template name="GML.Identifier" priority="1">
+	<xsl:template name="GML.Identifier" priority="1" xmlns:gml="http://www.opengis.net/gml/3.2">
 		<xsl:param name="id"/>
-
 		<gml:identifier codeSpace="{$gmlIdentifierCS}"><xsl:value-of select="concat($gmlIdentifierPrefix ,$id)"/></gml:identifier>
-
 	</xsl:template>
 
 	<!-- Generate gmd:Country element -->
-	<xsl:template name="GMD.Country" priority="1">
+	<xsl:template name="GMD.Country" priority="1" xmlns:gmd="http://www.isotc211.org/2005/gmd">
 		<gmd:Country codeList="{$countryCodeList}" codeListValue="{$countryCodeValue}">
 			<xsl:value-of select="$countryCodeValue"/>
 		</gmd:Country>
 	</xsl:template>
 
 	<!-- Generate gmd:LocalisedCharacterString element -->
-	<xsl:template name="GMD.LocalisedCharacterString" priority="1">
+	<xsl:template name="GMD.LocalisedCharacterString" priority="1" xmlns:gmd="http://www.isotc211.org/2005/gmd">
 		<xsl:param name="value"/>
 
 		<gmd:LocalisedCharacterString locale="{$locale}">
@@ -94,17 +87,6 @@
 		</gmd:LocalisedCharacterString>
 
 	</xsl:template>
-	
-	<xsl:template match="adminunits/geometria" name="LOFASZ">
-		<xsl:copy>
-		  <xsl:apply-templates select="@* | node()"/>
-		</xsl:copy>
-	</xsl:template>
-
-					<xsl:template match="gml:MultiSurface" name="LOFASZOK">
-						<xsl:param name="id"/>
-				  		<xsl:attribute name="gml:id" select="$id"/>
-					</xsl:template>
 
 	<xsl:template name="swapCoords">
 		<xsl:param name="coordString"/>
@@ -138,7 +120,7 @@
 	</xsl:template>
 
 	<!-- Callable Template: create Point element -->
-	<xsl:template name="createPoint" priority="1">
+	<xsl:template name="createPoint" priority="1" xmlns:gml="http://www.opengis.net/gml/3.2/3.2">
 		<xsl:param name="pointId"/>
 		<xsl:param name="point"/>
 		<gml:Point srsName="urn:ogc:def:crs:EPSG::4258" gml:id="{$pointId}">
