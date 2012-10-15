@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<base:member xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CP="urn:x-inspire:specification:gmlas:CadastralParcels:3.0">
-  <CP:CadastralParcel gml:id="HU.FOMI.CP. 913-0188/11">
-    <gml:identifier xmlns:gml="http://www.opengis.net/gml/3.2/3.2" xmlns:gmd="http://www.isotc211.org/2005/gmd" codeSpace="http://inspire.jrc.ec.europa.eu/">urn:x-inspire:object:id:913</gml:identifier>
-    <CP:areaValue uom="m2">29219.8</CP:areaValue>
-    <CP:beginLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
-    <CP:endLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
-    <CP:geometry>
-      <MultiSurface srsName="urn:ogc:def:crs:EPSG::4258">
-        <surfaceMember>
-          <Polygon>
-            <exterior>
-              <LinearRing>
-                <posList srsDimension="2">759909.49 174521.27 759903.23 174485.035 759891.32 174416.1 759626.67 174488.28 759637.676 174557.461 759643.46 174593.82 759909.49 174521.27</posList>
-              </LinearRing>
-            </exterior>
-          </Polygon>
-        </surfaceMember>
-      </MultiSurface>
-    </CP:geometry>
-    <CP:inspireId>
-      <base:Identifier xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2/3.2">
-        <base:localId>3284</base:localId>
-        <base:namespace/>
-      </base:Identifier>
-    </CP:inspireId>
-    <CP:label>0188/11</CP:label>
-    <CP:nationalCadastralReference> 913-0188/11</CP:nationalCadastralReference>
-  </CP:CadastralParcel>
-</base:member>
+<CP:CadastralParcel xmlns:CP="urn:x-inspire:specification:gmlas:CadastralParcels:3.0" xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="HU.FOMI.CP. 913-0188/11">
+  <gml:identifier codeSpace="http://inspire.jrc.ec.europa.eu/">urn:x-inspire:object:id:913</gml:identifier>
+  <CP:areaValue uom="m2">29220</CP:areaValue>
+  <CP:beginLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
+  <CP:endLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
+  <CP:geometry>
+    <gml:MultiSurface srsName="EPSG:4258">
+      <gml:surfaceMember>
+        <gml:Polygon>
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2">20.4912232053 46.906086555 20.4911322793 46.9057617083 20.4909592917 46.9051437062 20.4875038301 46.9058367459 20.4876649764 46.9064571154 20.4877496659 46.9067831589 20.4912232053 46.906086555</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </gml:surfaceMember>
+    </gml:MultiSurface>
+  </CP:geometry>
+  <CP:inspireId>
+    <base:Identifier>
+      <base:localId>3284</base:localId>
+      <base:namespace/>
+    </base:Identifier>
+  </CP:inspireId>
+  <CP:label>0188/11</CP:label>
+  <CP:nationalCadastralReference> 913-0188/11</CP:nationalCadastralReference>
+</CP:CadastralParcel>

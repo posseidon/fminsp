@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<base:member xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:CP="urn:x-inspire:specification:gmlas:CadastralParcels:3.0">
-  <CP:CadastralParcel gml:id="HU.FOMI.CP. 238-628">
-    <gml:identifier xmlns:gml="http://www.opengis.net/gml/3.2/3.2" xmlns:gmd="http://www.isotc211.org/2005/gmd" codeSpace="http://inspire.jrc.ec.europa.eu/">urn:x-inspire:object:id:238</gml:identifier>
-    <CP:areaValue uom="m2">3120</CP:areaValue>
-    <CP:beginLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
-    <CP:endLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
-    <CP:geometry>
-      <MultiSurface srsName="urn:ogc:def:crs:EPSG::4258">
-        <surfaceMember>
-          <Polygon>
-            <exterior>
-              <LinearRing>
-                <posList srsDimension="2">754803.62 177128.02 754822.62 177120.14 754850.48 177108.6 754876.53 177118.99 754932.2 177141.18 754935.92 177131.9 754880.27 177109.77 754848.62 177097.09 754795.91 177120.02 754738.82 177274.65 754748.0990000001 177278.382 754752.87 177265.46 754757.62 177252.59 754762.34 177239.8 754767.04 177227.08 754771.71 177214.44 754776.35 177201.87 754780.97 177189.37 754785.5500000001 177176.95 754790.11 177164.61 754794.64 177152.35 754799.14 177140.15 754803.62 177128.02</posList>
-              </LinearRing>
-            </exterior>
-          </Polygon>
-        </surfaceMember>
-      </MultiSurface>
-    </CP:geometry>
-    <CP:inspireId>
-      <base:Identifier xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2/3.2">
-        <base:localId>4175</base:localId>
-        <base:namespace/>
-      </base:Identifier>
-    </CP:inspireId>
-    <CP:label>628</CP:label>
-    <CP:nationalCadastralReference> 238-628</CP:nationalCadastralReference>
-  </CP:CadastralParcel>
-</base:member>
+<CP:CadastralParcel xmlns:CP="urn:x-inspire:specification:gmlas:CadastralParcels:3.0" xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="HU.FOMI.CP. 238-628">
+  <gml:identifier codeSpace="http://inspire.jrc.ec.europa.eu/">urn:x-inspire:object:id:238</gml:identifier>
+  <CP:areaValue uom="m2">3120</CP:areaValue>
+  <CP:beginLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
+  <CP:endLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
+  <CP:geometry>
+    <gml:MultiSurface srsName="EPSG:4258">
+      <gml:surfaceMember>
+        <gml:Polygon>
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2">20.4248210648 46.9303591307 20.4250686933 46.9302852502 20.4254317972 46.9301770481 20.4257762098 46.9302663655 20.4265122355 46.9304571124 20.4265589272 46.9303730601 20.425823179 46.93018285 20.4254047152 46.9300738243 20.4247179908 46.9302884014 20.4240041863 46.9316881499 20.4241268757 46.931720246 20.4241865295 46.931603273 20.4242459193 46.9314867709 20.4243049335 46.9313709931 20.424363701 46.931255848 20.4244220929 46.9311414271 20.4244801068 46.9310276405 20.4245378741 46.9309144866 20.4245951345 46.9308020585 20.4246521505 46.930690353 20.424708791 46.9305793718 20.4247650512 46.9304689349 20.4248210648 46.9303591307</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </gml:surfaceMember>
+    </gml:MultiSurface>
+  </CP:geometry>
+  <CP:inspireId>
+    <base:Identifier>
+      <base:localId>4175</base:localId>
+      <base:namespace/>
+    </base:Identifier>
+  </CP:inspireId>
+  <CP:label>628</CP:label>
+  <CP:nationalCadastralReference> 238-628</CP:nationalCadastralReference>
+</CP:CadastralParcel>

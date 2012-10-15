@@ -100,6 +100,7 @@ describe "Transform", "#transforming" do
 			puts "-----------------------"
 		end		
 	end
+
 end
 =end
 =begin
@@ -193,7 +194,7 @@ describe "Transform", "#testing output" do
 			puts "-----------------------"
 		end
 	end
-=end
+
 
 	it "should insert transformed adminunits data into database" do
 		@fconfig = YAML.load_file("./data/config/fomi.yml")
@@ -213,4 +214,22 @@ describe "Transform", "#testing output" do
 		}
 	end
 
+	it "should insert transformed cadastral parcels data into database" do
+		@fconfig = YAML.load_file("./data/config/fomi.yml")
+		@fomi = ActiveRecord::Base.establish_connection(@fconfig)
+		@cad = Transformer.new("./data/xsl/CadastralParcels_HU.xsl")
+
+
+		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
+		con = Model.new(config)
+		
+		Cadastralm.all.each {|record|
+			result = @cad.transform_string(record.xml)
+			xml = result.to_s(:indent => false).gsub("\n", "")
+			#query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.shn}', 1, '#{result}', ST_GeometryFromText('#{record.geom.as_wkt}'))"
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.parcel_id}', 6, '#{xml}', ST_GeometryFromText('#{record.env.as_wkt}'))"
+			con.insert(query)
+		}
+	end
+=end
 end
