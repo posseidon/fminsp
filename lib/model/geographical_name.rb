@@ -2,7 +2,7 @@ require 'rubygems'
 require 'active_record'
 require 'spatial_adapter/postgresql'
 
-class Fnt < ActiveRecord::Base
+class GeographicalName < ActiveRecord::Base
 	self.table_name = "fnt"
 
 	def to_xml(options = {})

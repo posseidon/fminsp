@@ -5,10 +5,10 @@ require 'active_record'
 $LOAD_PATH << '../lib/'
 require 'helper/database.rb'
 require 'helper/transformer.rb'
-require 'model/fnt.rb'
-require 'model/au.rb'
-require 'model/cadastralk.rb'
-require 'model/cadastralm.rb'
+require 'model/geographical_name.rb'
+require 'model/administrative_unit.rb'
+require 'model/cadastral_public.rb'
+require 'model/cadastral_private.rb'
 
 =begin
 describe "Transform", "#initialize" do
@@ -37,7 +37,7 @@ describe "Transform", "#transforming" do
 
 	it "should transform fnt record into geonames.xml" do
 		begin
-			fnt = Fnt.find_by_objectid(4901)
+			fnt = GeographicalName.find_by_objectid(4901)
 			result = @fnt.transform_string(fnt.xml)
 			xml = result.to_s(:indent => false).gsub("\n", "")
 			File.open("spec/gml_object.xml","w:UTF-8"){ |f| 
@@ -59,7 +59,7 @@ describe "Transform", "#transforming" do
 =begin
 	it "should transform au record into auminunits.xml" do
 		begin
-			admin_units = Au.find_by_objectid(74)
+			admin_units = AdministrativeUnit.find_by_objectid(74)
 			puts admin_units.data
 			result = @au.transform_string(admin_units.data)
 			File.open("spec/output3.xml","w:UTF-8"){ |f| 
@@ -86,7 +86,6 @@ describe "Transform", "#transforming" do
 
 	it "should transform cadastral record into cadastral.xml" do
 		begin
-
 			kozterulet = Cadastralk.find_by_parcel_id(238)
 			maganterulet = Cadastralm.find_by_parcel_id(913)
 			result = @cad.transform_string(kozterulet.xml)
@@ -120,7 +119,7 @@ describe "Transform", "#load" do
 		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
 		con = Database.new(config)
 		
-		Fnt.all.each {|record|
+		GeographicalName.all.each {|record|
 			result = @fnt.transform_string(record.xml)
 			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values(#{record.objectid}, 8, '#{result}', ST_GeometryFromText('#{record.geometria.as_wkt}'))"
 			con.insert(query)

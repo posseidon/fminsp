@@ -89,11 +89,11 @@ module Fomi2inspire
   	# Creating role and database
     require 'active_support/core_ext'
     require 'yaml'
-    require 'model/model'
+    require 'helper/database'
 
   	begin
     	# Connect to database
-    	conn = Model.connect(config.slice(:host, :user, :password))
+    	conn = Database.connect(config.slice(:host, :user, :password))
     	# Read create_user_db file and substitute with given parameters
   		queries = YAML.load_file(CONFIG_CR_USR)
 
@@ -111,7 +111,7 @@ module Fomi2inspire
 
   		# Connecting to #{config[:dbname]}
   		conn.close()
-  		conn = Model.connect(config.slice(:host, :dbname, :user, :password))
+  		conn = Database.connect(config.slice(:host, :dbname, :user, :password))
   		# Running grant operations
   		puts "Executing: Grants wrights to #{config[:usr]} role on [#{config[:dbname]}]...".foreground(:yellow)
   		sql = Fomi2inspire.replace_username_query(queries[:grantdatabase], config[:usr], config[:dbname])

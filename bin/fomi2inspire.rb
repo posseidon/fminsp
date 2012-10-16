@@ -13,8 +13,8 @@ program :description, 'Transforming FOMI data to INSPIRE'
 
 command :download do |c|
   c.syntax = 'fomi2inspire download [options]'
-  c.summary = ''
-  c.description = ''
+  c.summary = 'Downloading Software installers/executables from data/config/software.yml'
+  c.description = 'Downloading Software installers/executables from data/config/software.yml'
   c.example 'description', 'command example'
   c.option '-dest', 'Destination of downloaded files'
   c.action do |args, options|
@@ -97,8 +97,8 @@ end
 
 command :transform do |c|
   c.syntax = 'fomi2inspire transform [options]'
-  c.summary = ''
-  c.description = ''
+  c.summary = 'Transforming FOMI specific data into Inspire compatible'
+  c.description = 'Transforming FOMI specific data into Inspire compatible'
   c.example 'description', 'command example'
   c.option '--some-switch', 'Some switch that does something'
   c.option '--inspire_schema', 'Specify Inspire Schema for Tranformation'
@@ -110,8 +110,8 @@ end
 
 command :update do |c|
   c.syntax = 'fomi2inspire update [options]'
-  c.summary = ''
-  c.description = ''
+  c.summary = 'Update specified record from FOMI schema into INSPIRE schema'
+  c.description = 'Update specified record from FOMI schema into INSPIRE schema'
   c.example 'description', 'command example'
   c.option '--some-switch', 'Some switch that does something'
   c.action do |args, options|

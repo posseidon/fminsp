@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<fnt>
-  <id type="integer">4901</id>
-  <name>Diások</name>
-  <tipusnev>terület</tipusnev>
-  <typename>area, different kinds of areal features, territorial units in agriculture and foresty</typename>
-  <forrasnev>Magyarország 1:10 000 méretarányú térképsorozata. Felmérte és kartografálta  a Kartográfiai Vállalat, MN Térképészeti Intézet, Pécsi Geodéziai és Térképé  szeti Vállalat. Sokszorosította a Kartográfiai Vállalat, MN Térképészeti  Intézet. Budapest. 1955--1</forrasnev>
-  <geometria>18.437493679211084 46.111833174272014</geometria>
-</fnt>
