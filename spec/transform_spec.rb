@@ -3,8 +3,8 @@ require 'yaml'
 require 'active_record'
 
 $LOAD_PATH << '../lib/'
-require 'model/model.rb'
-require 'model/transformer.rb'
+require 'helper/database.rb'
+require 'helper/transformer.rb'
 require 'model/fnt.rb'
 require 'model/au.rb'
 require 'model/cadastralk.rb'
@@ -21,7 +21,7 @@ describe "Transform", "#initialize" do
 
 end
 =end
-=begin
+
 describe "Transform", "#transforming" do
 	before do
 		@fconfig = YAML.load_file("./data/config/fomi.yml")
@@ -38,19 +38,25 @@ describe "Transform", "#transforming" do
 	it "should transform fnt record into geonames.xml" do
 		begin
 			fnt = Fnt.find_by_objectid(4901)
-			puts fnt.xml
 			result = @fnt.transform_string(fnt.xml)
-			File.open("spec/output2.xml","w:UTF-8"){ |f| 
+			xml = result.to_s(:indent => false).gsub("\n", "")
+			File.open("spec/gml_object.xml","w:UTF-8"){ |f| 
 				f.write(result)
 			}
+			config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
+			con = Database.new(config)
+			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{fnt.objectid}', 1, '#{xml}', ST_GeometryFromText('#{fnt.env.as_wkt}'))"
+			result = con.insert(query)
+			puts result
+			result.should_not be(nil)
+
 		rescue Exception => e
 			puts "-----------------------"
 			puts e
 			puts "-----------------------"
 		end
-		result.should_not be(nil)
 	end
-
+=begin
 	it "should transform au record into auminunits.xml" do
 		begin
 			admin_units = Au.find_by_objectid(74)
@@ -60,7 +66,7 @@ describe "Transform", "#transforming" do
 				f.write(result)
 			}
 			config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
-			con = Model.new(config)
+			con = Database.new(config)
 			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{admin_units.shn}', 1, '#{result}', ST_GeometryFromText('#{admin_units.geom.as_wkt}'))"
 			result = con.insert(query)
 			puts result
@@ -100,9 +106,9 @@ describe "Transform", "#transforming" do
 			puts "-----------------------"
 		end		
 	end
-
-end
 =end
+end
+
 =begin
 describe "Transform", "#load" do
 
@@ -112,7 +118,7 @@ describe "Transform", "#load" do
 		@fnt = Transformer.new("./data/xsl/GeographicalNames_HU.xsl")
 
 		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
-		con = Model.new(config)
+		con = Database.new(config)
 		
 		Fnt.all.each {|record|
 			result = @fnt.transform_string(record.xml)
@@ -128,7 +134,7 @@ describe "Transform", "#load" do
 
 
 		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
-		con = Model.new(config)
+		con = Database.new(config)
 		
 		Au.all.each {|record|
 			result = @au.transform_string(record.data)
@@ -145,7 +151,7 @@ describe "Transform", "#load" do
 
 
 		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
-		con = Model.new(config)
+		con = Database.new(config)
 		
 		Cadastralk.all.each {|record|
 			result = @cad.transform_string(record.xml)
@@ -183,7 +189,7 @@ describe "Transform", "#testing output" do
 
 
 			config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
-			con = Model.new(config)
+			con = Database.new(config)
 			#query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('HU.FOMI.AU.74', 1, '#{xml}', ST_GeometryFromText('#{(admin_units.geog.bounding_box()).as_wkt}'))"
 			query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{admin_units.shn}', 1, '#{xml}', ST_GeometryFromText('#{admin_units.env.as_wkt}'))"
 			result = con.insert(query)
@@ -203,7 +209,7 @@ describe "Transform", "#testing output" do
 
 
 		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
-		con = Model.new(config)
+		con = Database.new(config)
 		
 		Au.all.each {|record|
 			result = @au.transform_string(record.data)
@@ -221,7 +227,7 @@ describe "Transform", "#testing output" do
 
 
 		config = {:host => 'localhost', :user => 'inspire', :password => 'inspire', :dbname => 'inspire'}
-		con = Model.new(config)
+		con = Database.new(config)
 		
 		Cadastralm.all.each {|record|
 			result = @cad.transform_string(record.xml)

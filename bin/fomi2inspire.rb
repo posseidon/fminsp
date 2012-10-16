@@ -10,36 +10,19 @@ require 'fomi2inspire.rb'
 
 program :version, Fomi2inspire::VERSION
 program :description, 'Transforming FOMI data to INSPIRE'
- 
-command :check do |c|
-  c.syntax = 'fomi2inspire check -config or -host hostname -db inspire_db_name'
-  c.summary = 'Checks if connection to inspire database. Also checks the existance of feature_types and gml_objects tables.'
-  c.description = 'Usage: fomi2inspire check [-config database.yml] or -host hostname -dbname dbname'
-  c.example 'description', ''
-  c.option '-config', 'Connection with database.yml file'
 
-  # Parse options and run command
+command :download do |c|
+  c.syntax = 'fomi2inspire download [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.option '-dest', 'Destination of downloaded files'
   c.action do |args, options|
-    config = {}
-    unless options.config.nil?
-      config = YAML.load_file(args[0])
-      config[:password] = ask("Login Password"){|q|
-        q.echo = "*"
-      }
-    else
-      config[:adapter] = 'postgresql'
-      config[:host] = ask("Hostname:")
-      config[:database] = ask("Inspire Database name:")
-      config[:username] = ask("Database user name:")
-      config[:password] = ask("Database password:"){ |q|
-        q.echo = "*"
-      }
-    end
-    schema_definition_file = ask("Schema Definition File:")
-    Fomi2inspire::check_schema_validity?(config, schema_definition_file)
+    Fomi2inspire.download(args[0])
   end
 end
 
+ 
 command :setup do |c|
   c.syntax = 'fomi2inspire setup [options]'
   c.summary = 'Setup FOMI and/or INSPIRE database with user creation.'
@@ -82,6 +65,35 @@ command :setup do |c|
   end
 end
 
+command :check do |c|
+  c.syntax = 'fomi2inspire check -config or -host hostname -db inspire_db_name'
+  c.summary = 'Checks if connection to inspire database. Also checks the existance of feature_types and gml_objects tables.'
+  c.description = 'Usage: fomi2inspire check [-config database.yml] or -host hostname -dbname dbname'
+  c.example 'description', ''
+  c.option '-config', 'Connection with database.yml file'
+
+  # Parse options and run command
+  c.action do |args, options|
+    config = {}
+    unless options.config.nil?
+      config = YAML.load_file(args[0])
+      config[:password] = ask("Login Password"){|q|
+        q.echo = "*"
+      }
+    else
+      config[:adapter] = 'postgresql'
+      config[:host] = ask("Hostname:")
+      config[:database] = ask("Inspire Database name:")
+      config[:username] = ask("Database user name:")
+      config[:password] = ask("Database password:"){ |q|
+        q.echo = "*"
+      }
+    end
+    #schema_definition_file = ask("Schema Definition File:")
+    schema_definition_file = "./data/config/feature_types.txt"
+    Fomi2inspire::check_schema_validity?(config, schema_definition_file)
+  end
+end
 
 command :transform do |c|
   c.syntax = 'fomi2inspire transform [options]'

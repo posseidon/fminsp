@@ -1,0 +1,2 @@
+postgresql-installer.exe: http://get.enterprisedb.com/postgresql/postgresql-8.4.14-1-windows.exe
+deegree.zip: http://artefacts.deegree.org/libs-releases-local/org/deegree/deegree-webservices/3.1.2/deegree-webservices-3.1.2.zip

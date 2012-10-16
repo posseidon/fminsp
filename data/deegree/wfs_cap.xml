@@ -30,11 +30,14 @@
   </FeatureTypeMetadata>
   -->
 
-  <FeatureTypeMetadata xmlns:ad="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0">
+  <FeatureTypeMetadata xmlns:AU="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0">
     <Name>AU:AdministrativeUnit</Name>
   </FeatureTypeMetadata>
-  <FeatureTypeMetadata xmlns:ad="urn:x-inspire:specification:gmlas:CadastralParcels:3.0">
+  <FeatureTypeMetadata xmlns:CP="urn:x-inspire:specification:gmlas:CadastralParcels:3.0">
     <Name>CP:CadastralParcel</Name>
+  </FeatureTypeMetadata>
+  <FeatureTypeMetadata xmlns:GN="urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0">
+    <Name>AU:AdministrativeUnit</Name>
   </FeatureTypeMetadata>
 
 

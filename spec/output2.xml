@@ -1,1 +1,39 @@
-<fnt><id>4901</id><nev>Diások</nev><tipusnev>terület</tipusnev><tipus_name>area, different kinds of areal features, territorial units in agriculture and foresty</tipus_name><forrasnev>Magyarország 1:10 000 méretarányú térképsorozata. Felmérte és kartografálta  a Kartográfiai Vállalat, MN Térképészeti Intézet, Pécsi Geodéziai és Térképé  szeti Vállalat. Sokszorosította a Kartográfiai Vállalat, MN Térképészeti  Intézet. Budapest. 1955--1</forrasnev><geometria><gml:Point srsName="urn:ogc:def:crs:EPSG::4326"><gml:pos srsDimension="2">18.4374936792 46.1118331743</gml:pos></gml:Point></geometria></fnt>
+<?xml version="1.0" encoding="UTF-8"?>
+<GN:NamedPlace xmlns:GN="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" xmlns:gml="http://www.opengis.net/gml/3.2/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="4901">
+  <gml:identifier xmlns:gml="http://www.opengis.net/gml/3.2" codeSpace="http://inspire.jrc.ec.europa.eu/">urn:x-inspire:object:id:4901</gml:identifier>
+  <GN:beginLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
+  <GN:endLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
+  <GN:geometry>
+    <gml:Point srsName="urn:ogc:def:crs:EPSG::4258" gml:id="4901">
+      <gml:pos>46.1118331743 18.4374936792 </gml:pos>
+    </gml:Point>
+  </GN:geometry>
+  <GN:inspireId>
+    <base:Identifier xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2">
+      <base:localId>NINCS</base:localId>
+      <base:namespace>HU.FOMI.GN</base:namespace>
+    </base:Identifier>
+  </GN:inspireId>
+  <GN:localType>
+    <gmd:LocalisedCharacterString xmlns:gmd="http://www.isotc211.org/2005/gmd" locale="HU">terület</gmd:LocalisedCharacterString>
+  </GN:localType>
+  <GN:name>
+    <GN:GeographicalName>
+      <GN:language xsi:nil="true"/>
+      <GN:nativeness codeSpace="NativenessValue.xml">endonym</GN:nativeness>
+      <GN:nameStatus codeSpace="NameStatusValue.xml">official</GN:nameStatus>
+      <GN:sourceOfName>Magyarország 1:10 000 méretarányú térképsorozata. Felmérte és kartografálta  a Kartográfiai Vállalat, MN Térképészeti Intézet, Pécsi Geodéziai és Térképé  szeti Vállalat. Sokszorosította a Kartográfiai Vállalat, MN Térképészeti  Intézet. Budapest. 1955--1</GN:sourceOfName>
+      <GN:pronunciation xsi:nil="true" nilReason="other:unpopulated"/>
+      <GN:spelling>
+        <GN:SpellingOfName>
+          <GN:text>Diások</GN:text>
+          <GN:script>Latn</GN:script>
+        </GN:SpellingOfName>
+      </GN:spelling>
+      <GN:grammaticalGender xsi:nil="true"/>
+      <GN:grammaticalNumber xsi:nil="true"/>
+    </GN:GeographicalName>
+  </GN:name>
+  <GN:relatedSpatialObject xsi:nil="true" nilReason="other:unpopulated"/>
+  <GN:type codeSpace="NamedPlaceTypeValue.xml"/>
+</GN:NamedPlace>

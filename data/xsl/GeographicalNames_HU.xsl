@@ -20,7 +20,6 @@
     <xsl:variable name="gmlId"><xsl:value-of select="fnt/id" /></xsl:variable>
     <xsl:variable name="pointId"><xsl:value-of select="fnt/id" /></xsl:variable>
 
-    <base:member xmlns:base="urn:x-inspire:specification:gmlas:BaseTypes:3.2">
       <GN:NamedPlace gml:id="{$gmlId}">
 
         <xsl:call-template name="GML.Identifier">
@@ -74,7 +73,6 @@
         <GN:type codeSpace="{$namedPlaceTypeValueCodeSpace}"><xsl:value-of select="fnt/typename" /></GN:type>
 
       </GN:NamedPlace>
-    </base:member>
   </xsl:template>
 
   <!-- Generate minimal GeographicalName element -->

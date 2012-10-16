@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'pg'
 
-class Model
+class Database
 
 	def initialize(conf)
 		@connection = PG.connect(conf)
@@ -15,7 +15,7 @@ class Model
 		end
 	end
 
-    def Model.connect(conf)
+    def Database.connect(conf)
     	connection = PG.connect(conf)
     	return connection
     end

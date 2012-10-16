@@ -1,9 +1,8 @@
 require 'rubygems'
 require 'active_record'
-require_relative 'model'
+require_relative 'database'
 
 class InspireValidator
-    include Model
 
 	def initialize(connnection_settings = {:adapter => 'postgresql', :host => 'localhost', :database => 'inspire', :username => 'inspire', :password => 'inspire'})
         @db = ActiveRecord::Base.establish_connection(connnection_settings)

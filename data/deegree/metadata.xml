@@ -1,0 +1,28 @@
+<deegreeServicesMetadata xmlns="http://www.deegree.org/services/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" configVersion="3.0.0" xsi:schemaLocation="http://www.deegree.org/services/metadata http://schemas.deegree.org/services/metadata/3.0.0/metadata.xsd">
+  <ServiceIdentification>
+    <Title>FOMI inspireNode</Title>
+    <Abstract>INSPIRE View and Download Services for the deployment of INSPIRE Data Themes on Hungary</Abstract>
+  </ServiceIdentification>
+  <ServiceProvider>
+    <ProviderName>Institute of Geodesy, Cartography and Remote Sensing</ProviderName>
+    <ProviderSite>http://www.fomi.hu</ProviderSite>
+    <ServiceContact>
+      <IndividualName>Dr. Kristóf Dániel</IndividualName>
+      <PositionName>Osztályvezető</PositionName>
+      <Phone></Phone>
+      <Facsimile></Facsimile>
+      <ElectronicMailAddress>info@fomi.hu</ElectronicMailAddress>
+      <Address>
+        <DeliveryPoint>Bosnyák tér 5.</DeliveryPoint>
+        <City>Budapest</City>
+        <AdministrativeArea>Budapest</AdministrativeArea>
+        <PostalCode>1149</PostalCode>
+        <Country>Hungary</Country>
+      </Address>
+      <OnlineResource>http://www.fomi.hu</OnlineResource>
+      <HoursOfService>24x7</HoursOfService>
+      <ContactInstructions>Do not hesitate to call</ContactInstructions>
+      <Role>PointOfContact</Role>
+    </ServiceContact>
+  </ServiceProvider>
+</deegreeServicesMetadata>
