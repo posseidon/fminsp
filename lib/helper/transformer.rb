@@ -12,10 +12,8 @@ class Transformer
 	end
 
 	def transform_string(xml_str)
-		puts "*********************"
 		xml_doc = LibXML::XML::Document.string(xml_str)
   		result = @stylesheet.apply(xml_doc)
-  		puts "*********************"
   		return result
 	end
 

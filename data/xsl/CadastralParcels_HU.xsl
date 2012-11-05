@@ -21,26 +21,17 @@
 			<CP:CadastralParcel gml:id="{$gmlId}">
 
 				<xsl:call-template name="GML.Identifier">
-						<xsl:with-param name="id">
-							<xsl:value-of select="cadastral/id"/>
-						</xsl:with-param>
-					</xsl:call-template>
+					<xsl:with-param name="id">
+						<xsl:value-of select="cadastral/id"/>
+					</xsl:with-param>
+				</xsl:call-template>
 
 				<CP:areaValue uom="{$areaUOM}"><xsl:value-of select="cadastral/area"/></CP:areaValue>
 				<CP:beginLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
 				<CP:endLifespanVersion xsi:nil="true" nilReason="other:unpopulated"/>
 
-				<!-- Generate (complex) MultiSurface geometry -->
 				<CP:geometry>
 					<xsl:copy-of select="cadastral/geometria/*"/>
-					<!-- This is locally specific -->
-					<!--
-					<xsl:call-template name="createMultiSurface">
-						<xsl:with-param name="id">
-							<xsl:value-of select="$gmlId"/>
-						</xsl:with-param>
-					</xsl:call-template>
-					-->
 				</CP:geometry>
 
 				<!-- Generate INSPIRE id -->

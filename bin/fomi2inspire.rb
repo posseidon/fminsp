@@ -22,46 +22,76 @@ command :download do |c|
   end
 end
 
- 
+command :drop do |c|
+  c.syntax = 'fomi2inspire delete [options]'
+  c.summary = 'Drops role or database'
+  c.description = 'Drops database role or databases from data/setup/create_user_db.yml'
+  c.example 'description', 'command example'
+  c.option '-user', 'Role'
+  c.option '-db', 'Database'
+  c.action do |args, options|
+    config = {}
+    config[:host] = ask("Hostname:")
+    # Request for DB admin username and password
+    config[:user] = ask("DB Admin username:")
+    config[:password] = ask("DB Admin user password:"){ |q|
+      q.echo = "*"
+    }
+    options.user.nil? ? config[:dbname] = args[0] : config[:usr] = args[0]
+    Fomi2inspire.drop(config)
+  end  
+end
+
 command :setup do |c|
   c.syntax = 'fomi2inspire setup [options]'
   c.summary = 'Setup FOMI and/or INSPIRE database with user creation.'
   c.description = 'Create user, grant wrights on database.'
   c.example 'description', 'command example'
+  c.option '-user', 'Setup new Role'
+  c.option '-db', 'Setup new DB'
 
   # Parse options and run command
   c.action do |args, options|
     config = {}
     config[:host] = ask("Hostname:")
-    # Which database to setup?
-    config[:dbname] = ask("New Database name:")
-    puts "Setting up #{config[:dbname]} ...".foreground(:green)
-
     # Request for DB admin username and password
     config[:user] = ask("DB Admin username:")
     config[:password] = ask("DB Admin user password:"){ |q|
       q.echo = "*"
     }
 
-    # Request for New role name and password
-    config[:usr] = ask("New role name:")
-    password_match = true
-    begin
-      puts "Password does not match !".foreground(:red) if password_match == false
-      first_pwd = ask("New role's password:"){|q|
-        q.echo = "*"
-      }
-      second_pwd = ask("Repeat new role's password:"){|q|
-        q.echo = "*"
-      }
-      password_match = first_pwd.eql?(second_pwd)
-    end while !password_match
-    config[:pwd] = second_pwd
+    # Setup User/Role
+    if options.user
+      # -user args[0]
+      config[:usr] = args[0]
 
-    # Request for postgis_template template name
-    config[:template] = ask("PostGIS template name for new database: #{config[:dbname]}")
+      password_match = true
+      begin
+        puts "Password does not match !".foreground(:red) if password_match == false
+        first_pwd = ask("New role's password:"){|q|
+          q.echo = "*"
+        }
+        second_pwd = ask("Repeat new role's password:"){|q|
+          q.echo = "*"
+        }
+        password_match = first_pwd.eql?(second_pwd)
+      end while !password_match
+      config[:pwd] = second_pwd
 
-    Fomi2inspire::setup_db(config)
+      # Setup User
+      Fomi2inspire.setup_user(config)
+    else
+      # Owner
+      config[:usr] = ask("Owner role name:")
+      # Which database to setup?
+      config[:dbname] = ask("New Database name:")
+      # Request for postgis_template template name
+      config[:template] = ask("PostGIS template name for new database: #{config[:dbname]}")
+      puts "Setting up #{config[:dbname]} ...".foreground(:green)
+
+      # Setup Database
+      Fomi2inspire::setup_db(config)
+    end
   end
 end
 
@@ -97,14 +127,16 @@ end
 
 command :transform do |c|
   c.syntax = 'fomi2inspire transform [options]'
-  c.summary = 'Transforming FOMI specific data into Inspire compatible'
-  c.description = 'Transforming FOMI specific data into Inspire compatible'
-  c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
-  c.option '--inspire_schema', 'Specify Inspire Schema for Tranformation'
-  c.option '--inspire_transformation_config', 'Configuration for mapping data attributes'
+  c.summary = 'Transforming FOMI specific data into Inspire compatible.'
+  c.description = 'Transforming FOMI specific data into Inspire compatible.'
+  c.example 'description', '-conn database.yml -schema [Au|Cad|Gn]'
+  c.option '-conn', 'Connection configuration YML file for both source and destination databases.'
+  c.option '-schema', 'Specify Inspire Schema'
   c.action do |args, options|
-    # Do something or c.when_called Fomi2inspire::Commands::Transform
+    config = {}
+    config[:conf] = args[0]
+    config[:schema] = args[1]
+    Fomi2inspire.transform_data(config)
   end
 end
 

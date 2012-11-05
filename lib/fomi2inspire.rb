@@ -7,6 +7,7 @@ module Fomi2inspire
 
   CONFIG_SOFTWARES = "./data/config/softwares.yml"
   CONFIG_CR_USR = "data/setup/create_user_db.yml"
+  CONFIG_DROP = "data/setup/drop.yml"
   CONTENT_LENGTH = "content-length"
   USERNAME = "USERNAME"
   PASSWORD = "PASSWORD"
@@ -85,6 +86,52 @@ module Fomi2inspire
     end
   end
 
+  def Fomi2inspire.drop(config)
+    # Creating role and database
+    require 'active_support/core_ext'
+    require 'yaml'
+    require 'helper/database'
+    begin
+      queries = YAML.load_file(CONFIG_DROP)
+      conn = Database.connect(config.slice(:host, :user, :password))
+      if config[:dbname]
+        puts "Executing: Drop database: #{config[:dbname]} ...".foreground(:green)
+        sql = Fomi2inspire.replace(queries[:dropdb], DATABASE_NAME, config[:dbname])
+        result = conn.exec(sql)
+        puts "\t ~> Database #{config[:dbname]} dropped".foreground(:green)
+      else
+        puts "Executing: Drop user role: #{config[:usr]} ...".foreground(:green)
+        sql = Fomi2inspire.replace(queries[:droprole], USERNAME, config[:usr])
+        result = conn.exec(sql)
+        puts "\t ~> User #{config[:usr]} dropped".foreground(:green)
+      end
+    rescue Exception => e
+      puts (e.to_s).foreground(:yellow)
+    end
+  end
+
+  def Fomi2inspire.setup_user(config)
+    # Creating role and database
+    require 'active_support/core_ext'
+    require 'yaml'
+    require 'helper/database'
+
+    begin
+      # Connect to database
+      conn = Database.connect(config.slice(:host, :user, :password))
+      # Read create_user_db file and substitute with given parameters
+      queries = YAML.load_file(CONFIG_CR_USR)
+
+      puts "Executing: Creating user role: #{config[:usr]} ...".foreground(:green)
+      sql =  Fomi2inspire.replace_role_query(queries[:role], config)
+      result = conn.exec(sql)
+      puts "\t ~> User #{config[:usr]} created with"
+      Fomi2inspire.print_role_wrights()          
+    rescue Exception => e
+      puts (e.to_s).foreground(:yellow)
+    end    
+  end
+
   def Fomi2inspire.setup_db(config)
   	# Creating role and database
     require 'active_support/core_ext'
@@ -95,14 +142,7 @@ module Fomi2inspire
     	# Connect to database
     	conn = Database.connect(config.slice(:host, :user, :password))
     	# Read create_user_db file and substitute with given parameters
-  		queries = YAML.load_file(CONFIG_CR_USR)
-
-  		puts "Executing: Creating user role: #{config[:usr]} ...".foreground(:green)
-  		sql =  Fomi2inspire.replace_role_query(queries[:role], config)
-  		result = conn.exec(sql)
-  		puts "\t ~> User #{config[:usr]} created with"
-  		Fomi2inspire.print_role_wrights()
-  		
+  		queries = YAML.load_file(CONFIG_CR_USR)  		
 
   		puts "Executing: Creating database: #{config[:dbname]}...".foreground(:blue)
   		sql =  Fomi2inspire.replace_db_create_query(queries[:database], config)
@@ -138,6 +178,104 @@ module Fomi2inspire
   	end
   end
 
+
+  def Fomi2inspire.transform_data(config)
+    $LOAD_PATH << '../lib/'
+    require 'yaml'
+    require 'active_record'
+    require 'helper/database.rb'
+    require 'helper/transformer.rb'
+    require 'model/geographical_name.rb'
+    require 'model/administrative_unit.rb'
+    require 'model/cadastral_public.rb'
+    require 'model/cadastral_private.rb'
+
+    begin
+      # Check connection settings
+      connections = YAML.load_file(config[:conf])
+
+      # Establishing Database Connection for ActiveRecord
+      fomi_con = ActiveRecord::Base.establish_connection(connections[:fomi])
+      # Establishing Database Connection for Pg
+      inspire_con = Database.new(connections[:inspire])
+
+      if config[:schema] == "Au"
+        # Transform Administrative Units
+        Fomi2inspire.transform_AU(inspire_con)
+      elsif config[:schema] == "Cad"
+        # Transform Cadastral Parcels
+        Fomi2inspire.transform_Cad(inspire_con)
+      else
+        # Transform Geographical Names
+        Fomi2inspire.transform_Gn(inspire_con)
+      end
+    rescue Exception => e
+      puts (e.to_s).foreground(:yellow)
+    end
+  end
+
+  def Fomi2inspire.transform_Cad(inspire_con)
+    cad = Transformer.new("./data/xsl/CadastralParcels_HU.xsl")
+    pbar = ProgressBar.new("CadastralPublic", CadastralPublic.count)
+    counter = 0
+    CadastralPublic.all.each {|record|
+      result = cad.transform_string(record.xml)
+      xml = result.to_s(:indent => false).gsub("\n", "")
+      query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.parcel_id}-#{record.hrsz}', 6, '#{xml}', ST_GeometryFromText('#{record.env.as_wkt}'))"
+      inspire_con.insert(query)
+      counter += 1
+      pbar.set(counter)
+    }
+    pbar.finish
+
+    puts "Cadastral Public Imported Records: #{counter}/#{CadastralPublic.count}".foreground(:green)
+
+    pbar = ProgressBar.new("CadastralPrivate", CadastralPrivate.count)
+    counter = 0
+    CadastralPrivate.all.each {|record|
+      result = cad.transform_string(record.xml)
+      xml = result.to_s(:indent => false).gsub("\n", "")
+      query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.parcel_id}-#{record.hrsz}', 6, '#{xml}', ST_GeometryFromText('#{record.env.as_wkt}'))"
+      inspire_con.insert(query)
+      counter += 1
+      pbar.set(counter)
+    }
+    pbar.finish
+    puts "Cadastral Private Imported Records: #{counter}/#{CadastralPrivate.count}".foreground(:green)
+  end
+
+  def Fomi2inspire.transform_AU(inspire_con)
+    au = Transformer.new("./data/xsl/AdministrativeUnits_HU.xsl")
+    pbar = ProgressBar.new("Administrative Units", AdministrativeUnit.count)
+    counter = 0
+    AdministrativeUnit.all.each {|record|
+      result = au.transform_string(record.xml)
+      xml = result.to_s(:indent => false).gsub("\n", "")
+      query = "insert into gml_objects(gml_id, ft_type, binary_object, gml_bounded_by) values('#{record.shn}', 1, '#{xml}', ST_GeometryFromText('#{record.env.as_wkt}'))"
+      inspire_con.insert(query)
+      counter += 1
+      pbar.set(counter)
+    }
+    pbar.finish
+    puts "Administrative Units Imported Records: #{counter}/#{AdministrativeUnit.count}".foreground(:green)
+  end
+
+  def Fomi2inspire.transform_Gn(inspire_con)
+    gn = Transformer.new("./data/xsl/GeographicalNames_HU.xsl")
+    pbar = ProgressBar.new("GeographicalNames", GeographicalName.count)
+    counter = 0
+
+    GeographicalName.all.each {|record|
+      result = gn.transform_string(record.xml)
+      xml = result.to_s(:indent => false).gsub("\n", "")
+      query = "insert into gml_objects(gml_id, ft_type, binary_object) values(#{record.objectid}, 8, '#{xml}')"
+      inspire_con.insert(query)
+      counter += 1
+      pbar.set(counter)
+    }
+    pbar.finish
+    puts "Geographical Names Imported Records: #{counter}/#{GeographicalName.count}".foreground(:green)
+  end
 
   def Fomi2inspire.print_schema_results(status)
   	table = Terminal::Table.new do |t|
@@ -179,6 +317,10 @@ module Fomi2inspire
 			src_schema.push((line.to_s).strip!)
 		}
 		return src_schema
+  end
+
+  def Fomi2inspire.replace(sql, key, str)
+    return sql.gsub!(key, str)
   end
 
   def Fomi2inspire.replace_role_query(sql, config)
