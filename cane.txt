@@ -1,0 +1,492 @@
+
+Methods exceeded maximum allowed ABC complexity (5):
+
+  ./lib/fomi2inspire.rb  Fomi2inspire.transform_Cad  40
+  ./lib/fomi2inspire.rb  Fomi2inspire.setup_db       31
+  ./lib/fomi2inspire.rb  Fomi2inspire.download       26
+  ./lib/fomi2inspire.rb  Fomi2inspire.transform_AU   20
+  ./lib/fomi2inspire.rb  Fomi2inspire.transform_Gn   18
+
+Lines violated style requirements (468):
+
+  lib/fomi2inspire.rb:29              Line contains trailing whitespace
+  lib/fomi2inspire.rb:69              Line is >80 characters (121)
+  lib/fomi2inspire.rb:73              Line is >80 characters (90)
+  lib/fomi2inspire.rb:74              Line contains hard tabs
+  lib/fomi2inspire.rb:75              Line contains hard tabs
+  lib/fomi2inspire.rb:76              Line contains hard tabs
+  lib/fomi2inspire.rb:77              Line contains hard tabs
+  lib/fomi2inspire.rb:78              Line contains hard tabs
+  lib/fomi2inspire.rb:79              Line contains hard tabs
+  lib/fomi2inspire.rb:80              Line contains hard tabs
+  lib/fomi2inspire.rb:81              Line contains hard tabs
+  lib/fomi2inspire.rb:83              Line contains trailing whitespace
+  lib/fomi2inspire.rb:98              Line is >80 characters (82)
+  lib/fomi2inspire.rb:99              Line is >80 characters (84)
+  lib/fomi2inspire.rb:125             Line is >80 characters (82)
+  lib/fomi2inspire.rb:129             Line contains trailing whitespace
+  lib/fomi2inspire.rb:132             Line contains trailing whitespace
+  lib/fomi2inspire.rb:136             Line contains hard tabs
+  lib/fomi2inspire.rb:141             Line contains hard tabs
+  lib/fomi2inspire.rb:142             Line contains hard tabs
+  lib/fomi2inspire.rb:143             Line contains hard tabs
+  lib/fomi2inspire.rb:144             Line contains hard tabs
+  lib/fomi2inspire.rb:145             Line contains trailing whitespace
+  lib/fomi2inspire.rb:145             Line contains hard tabs
+  lib/fomi2inspire.rb:147             Line contains hard tabs
+  lib/fomi2inspire.rb:148             Line contains hard tabs
+  lib/fomi2inspire.rb:149             Line contains hard tabs
+  lib/fomi2inspire.rb:150             Line is >80 characters (113)
+  lib/fomi2inspire.rb:150             Line contains hard tabs
+  lib/fomi2inspire.rb:152             Line contains hard tabs
+  lib/fomi2inspire.rb:153             Line contains hard tabs
+  lib/fomi2inspire.rb:154             Line contains hard tabs
+  lib/fomi2inspire.rb:155             Line contains hard tabs
+  lib/fomi2inspire.rb:156             Line is >80 characters (107)
+  lib/fomi2inspire.rb:156             Line contains hard tabs
+  lib/fomi2inspire.rb:157             Line is >80 characters (101)
+  lib/fomi2inspire.rb:157             Line contains hard tabs
+  lib/fomi2inspire.rb:158             Line contains hard tabs
+  lib/fomi2inspire.rb:159             Line is >80 characters (102)
+  lib/fomi2inspire.rb:159             Line contains hard tabs
+  lib/fomi2inspire.rb:160             Line is >80 characters (82)
+  lib/fomi2inspire.rb:160             Line contains hard tabs
+  lib/fomi2inspire.rb:161             Line contains hard tabs
+  lib/fomi2inspire.rb:162             Line is >80 characters (90)
+  lib/fomi2inspire.rb:162             Line contains hard tabs
+  lib/fomi2inspire.rb:163             Line contains hard tabs
+  lib/fomi2inspire.rb:164             Line contains hard tabs
+  lib/fomi2inspire.rb:165             Line is >80 characters (91)
+  lib/fomi2inspire.rb:165             Line contains hard tabs
+  lib/fomi2inspire.rb:166             Line is >80 characters (83)
+  lib/fomi2inspire.rb:166             Line contains hard tabs
+  lib/fomi2inspire.rb:167             Line contains hard tabs
+  lib/fomi2inspire.rb:168             Line is >80 characters (89)
+  lib/fomi2inspire.rb:168             Line contains hard tabs
+  lib/fomi2inspire.rb:173             Line is >80 characters (84)
+  lib/fomi2inspire.rb:175             Line contains trailing whitespace
+  lib/fomi2inspire.rb:176             Line contains hard tabs
+  lib/fomi2inspire.rb:177             Line contains hard tabs
+  lib/fomi2inspire.rb:178             Line contains hard tabs
+  lib/fomi2inspire.rb:224             Line is >80 characters (190)
+  lib/fomi2inspire.rb:231             Line is >80 characters (100)
+  lib/fomi2inspire.rb:238             Line is >80 characters (190)
+  lib/fomi2inspire.rb:244             Line is >80 characters (102)
+  lib/fomi2inspire.rb:254             Line is >80 characters (169)
+  lib/fomi2inspire.rb:260             Line is >80 characters (107)
+  lib/fomi2inspire.rb:271             Line is >80 characters (111)
+  lib/fomi2inspire.rb:277             Line is >80 characters (103)
+  lib/fomi2inspire.rb:281             Line contains hard tabs
+  lib/fomi2inspire.rb:282             Line contains hard tabs
+  lib/fomi2inspire.rb:283             Line contains hard tabs
+  lib/fomi2inspire.rb:284             Line contains hard tabs
+  lib/fomi2inspire.rb:285             Line contains hard tabs
+  lib/fomi2inspire.rb:286             Line contains hard tabs
+  lib/fomi2inspire.rb:287             Line contains trailing whitespace
+  lib/fomi2inspire.rb:287             Line contains hard tabs
+  lib/fomi2inspire.rb:288             Line contains hard tabs
+  lib/fomi2inspire.rb:289             Line contains hard tabs
+  lib/fomi2inspire.rb:290             Line contains hard tabs
+  lib/fomi2inspire.rb:294             Line contains hard tabs
+  lib/fomi2inspire.rb:295             Line contains hard tabs
+  lib/fomi2inspire.rb:296             Line contains hard tabs
+  lib/fomi2inspire.rb:297             Line contains hard tabs
+  lib/fomi2inspire.rb:298             Line contains hard tabs
+  lib/fomi2inspire.rb:299             Line contains hard tabs
+  lib/fomi2inspire.rb:300             Line contains hard tabs
+  lib/fomi2inspire.rb:301             Line contains hard tabs
+  lib/fomi2inspire.rb:305             Line contains hard tabs
+  lib/fomi2inspire.rb:306             Line contains hard tabs
+  lib/fomi2inspire.rb:307             Line contains hard tabs
+  lib/fomi2inspire.rb:308             Line contains hard tabs
+  lib/fomi2inspire.rb:309             Line contains hard tabs
+  lib/fomi2inspire.rb:310             Line contains hard tabs
+  lib/fomi2inspire.rb:311             Line contains hard tabs
+  lib/fomi2inspire.rb:315             Line contains hard tabs
+  lib/fomi2inspire.rb:316             Line contains hard tabs
+  lib/fomi2inspire.rb:317             Line contains hard tabs
+  lib/fomi2inspire.rb:318             Line contains hard tabs
+  lib/fomi2inspire.rb:319             Line contains hard tabs
+  lib/fomi2inspire.rb:327             Line contains hard tabs
+  lib/fomi2inspire.rb:328             Line contains hard tabs
+  lib/fomi2inspire.rb:329             Line contains hard tabs
+  lib/fomi2inspire.rb:330             Line contains hard tabs
+  lib/fomi2inspire.rb:331             Line contains hard tabs
+  lib/fomi2inspire.rb:335             Line is >80 characters (117)
+  lib/fomi2inspire.rb:335             Line contains hard tabs
+  lib/fomi2inspire.rb:336             Line contains hard tabs
+  lib/fomi2inspire.rb:337             Line contains hard tabs
+  lib/fomi2inspire.rb:338             Line contains hard tabs
+  lib/fomi2inspire.rb:339             Line contains hard tabs
+  lib/fomi2inspire.rb:343             Line contains hard tabs
+  lib/fomi2inspire.rb:344             Line contains hard tabs
+  lib/fomi2inspire.rb:345             Line contains hard tabs
+  lib/fomi2inspire.rb:346             Line contains hard tabs
+  lib/fomi2inspire.rb:347             Line contains hard tabs
+  lib/fomi2inspire.rb:348             Line contains hard tabs
+  lib/fomi2inspire.rb:349             Line contains hard tabs
+  lib/helper/database.rb:6            Line contains hard tabs
+  lib/helper/database.rb:7            Line contains hard tabs
+  lib/helper/database.rb:8            Line contains hard tabs
+  lib/helper/database.rb:10           Line contains hard tabs
+  lib/helper/database.rb:11           Line contains hard tabs
+  lib/helper/database.rb:12           Line contains hard tabs
+  lib/helper/database.rb:13           Line contains hard tabs
+  lib/helper/database.rb:14           Line contains hard tabs
+  lib/helper/database.rb:15           Line contains hard tabs
+  lib/helper/database.rb:16           Line contains hard tabs
+  lib/helper/database.rb:19           Line contains hard tabs
+  lib/helper/database.rb:20           Line contains hard tabs
+  lib/helper/inspirevalidator.rb:7    Line is >80 characters (160)
+  lib/helper/inspirevalidator.rb:7    Line contains hard tabs
+  lib/helper/inspirevalidator.rb:9    Line contains hard tabs
+  lib/helper/inspirevalidator.rb:13   Line is >80 characters (167)
+  lib/helper/inspirevalidator.rb:19   Line is >80 characters (89)
+  lib/helper/inspirevalidator.rb:24   Line contains trailing whitespace
+  lib/helper/inspirevalidator.rb:24   Line contains hard tabs
+  lib/helper/transformer.rb:9         Line contains hard tabs
+  lib/helper/transformer.rb:10        Line contains hard tabs
+  lib/helper/transformer.rb:11        Line contains hard tabs
+  lib/helper/transformer.rb:12        Line contains hard tabs
+  lib/helper/transformer.rb:14        Line contains hard tabs
+  lib/helper/transformer.rb:15        Line contains hard tabs
+  lib/helper/transformer.rb:16        Line contains hard tabs
+  lib/helper/transformer.rb:17        Line contains hard tabs
+  lib/helper/transformer.rb:18        Line contains hard tabs
+  lib/helper/transformer.rb:20        Line contains hard tabs
+  lib/helper/transformer.rb:21        Line contains hard tabs
+  lib/helper/transformer.rb:22        Line contains hard tabs
+  lib/helper/transformer.rb:23        Line contains trailing whitespace
+  lib/helper/transformer.rb:23        Line contains hard tabs
+  lib/helper/transformer.rb:24        Line contains hard tabs
+  lib/helper/transformer.rb:26        Line contains hard tabs
+  lib/helper/transformer.rb:27        Line contains hard tabs
+  lib/helper/transformer.rb:28        Line contains hard tabs
+  lib/helper/transformer.rb:29        Line contains hard tabs
+  lib/helper/transformer.rb:30        Line contains hard tabs
+  lib/helper/transformer.rb:31        Line contains hard tabs
+  lib/helper/transformer.rb:32        Line contains hard tabs
+  lib/helper/transformer.rb:34        Line contains hard tabs
+  lib/helper/transformer.rb:35        Line contains hard tabs
+  lib/helper/transformer.rb:36        Line contains hard tabs
+  lib/helper/transformer.rb:37        Line contains hard tabs
+  lib/helper/transformer.rb:38        Line contains hard tabs
+  lib/helper/transformer.rb:39        Line contains trailing whitespace
+  lib/helper/transformer.rb:39        Line contains hard tabs
+  lib/helper/transformer.rb:40        Line contains hard tabs
+  lib/model/administrative_unit.rb:6  Line contains hard tabs
+  lib/model/cadastral_private.rb:6    Line contains hard tabs
+  lib/model/cadastral_public.rb:6     Line contains hard tabs
+  lib/model/geographical_name.rb:6    Line contains hard tabs
+  lib/model/geographical_name.rb:8    Line contains hard tabs
+  lib/model/geographical_name.rb:9    Line contains hard tabs
+  lib/model/geographical_name.rb:10   Line contains hard tabs
+  lib/model/geographical_name.rb:11   Line contains hard tabs
+  lib/model/geographical_name.rb:12   Line contains hard tabs
+  lib/model/geographical_name.rb:13   Line contains hard tabs
+  lib/model/geographical_name.rb:14   Line contains hard tabs
+  lib/model/geographical_name.rb:15   Line contains hard tabs
+  lib/model/geographical_name.rb:16   Line contains hard tabs
+  lib/model/geographical_name.rb:17   Line contains hard tabs
+  lib/model/geographical_name.rb:19   Line contains hard tabs
+  lib/model/geographical_name.rb:20   Line contains hard tabs
+  lib/model/geographical_name.rb:21   Line contains hard tabs
+  lib/model/geographical_name.rb:22   Line contains hard tabs
+  lib/model/geographical_name.rb:23   Line contains hard tabs
+  lib/model/geographical_name.rb:24   Line contains hard tabs
+  lib/model/geographical_name.rb:26   Line contains hard tabs
+  lib/model/geographical_name.rb:27   Line contains hard tabs
+  spec/database_spec.rb:8             Line contains hard tabs
+  spec/database_spec.rb:9             Line contains hard tabs
+  spec/database_spec.rb:10            Line contains hard tabs
+  spec/database_spec.rb:11            Line contains hard tabs
+  spec/database_spec.rb:12            Line contains hard tabs
+  spec/database_spec.rb:14            Line contains hard tabs
+  spec/database_spec.rb:15            Line contains hard tabs
+  spec/database_spec.rb:16            Line contains hard tabs
+  spec/database_spec.rb:17            Line contains hard tabs
+  spec/database_spec.rb:18            Line contains hard tabs
+  spec/database_spec.rb:19            Line contains hard tabs
+  spec/geographical_name_spec.rb:10   Line contains hard tabs
+  spec/geographical_name_spec.rb:11   Line contains hard tabs
+  spec/geographical_name_spec.rb:12   Line contains hard tabs
+  spec/geographical_name_spec.rb:13   Line contains hard tabs
+  spec/geographical_name_spec.rb:15   Line contains hard tabs
+  spec/geographical_name_spec.rb:16   Line contains hard tabs
+  spec/geographical_name_spec.rb:17   Line contains hard tabs
+  spec/geographical_name_spec.rb:18   Line contains hard tabs
+  spec/geographical_name_spec.rb:20   Line contains hard tabs
+  spec/geographical_name_spec.rb:21   Line contains hard tabs
+  spec/geographical_name_spec.rb:22   Line contains trailing whitespace
+  spec/geographical_name_spec.rb:22   Line contains hard tabs
+  spec/geographical_name_spec.rb:23   Line contains hard tabs
+  spec/geographical_name_spec.rb:27   Line contains hard tabs
+  spec/geographical_name_spec.rb:28   Line contains hard tabs
+  spec/geographical_name_spec.rb:29   Line contains hard tabs
+  spec/geographical_name_spec.rb:30   Line contains hard tabs
+  spec/geographical_name_spec.rb:32   Line contains hard tabs
+  spec/geographical_name_spec.rb:33   Line is >80 characters (94)
+  spec/geographical_name_spec.rb:33   Line contains hard tabs
+  spec/geographical_name_spec.rb:34   Line contains hard tabs
+  spec/geographical_name_spec.rb:35   Line contains hard tabs
+  spec/geographical_name_spec.rb:36   Line contains hard tabs
+  spec/geographical_name_spec.rb:37   Line contains hard tabs
+  spec/geographical_name_spec.rb:38   Line contains hard tabs
+  spec/geographical_name_spec.rb:39   Line contains hard tabs
+  spec/geographical_name_spec.rb:41   Line contains hard tabs
+  spec/geographical_name_spec.rb:42   Line contains hard tabs
+  spec/geographical_name_spec.rb:43   Line contains trailing whitespace
+  spec/geographical_name_spec.rb:43   Line contains hard tabs
+  spec/geographical_name_spec.rb:44   Line contains hard tabs
+  spec/geographical_name_spec.rb:45   Line contains hard tabs
+  spec/geographical_name_spec.rb:46   Line contains hard tabs
+  spec/geographical_name_spec.rb:47   Line contains hard tabs
+  spec/inspirevalidator_spec.rb:7     Line contains hard tabs
+  spec/inspirevalidator_spec.rb:8     Line is >80 characters (111)
+  spec/inspirevalidator_spec.rb:8     Line contains hard tabs
+  spec/inspirevalidator_spec.rb:9     Line contains hard tabs
+  spec/inspirevalidator_spec.rb:10    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:15    Line is >80 characters (155)
+  spec/inspirevalidator_spec.rb:21    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:22    Line is >80 characters (150)
+  spec/inspirevalidator_spec.rb:22    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:23    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:25    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:26    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:27    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:29    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:30    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:31    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:32    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:33    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:34    Line contains hard tabs
+  spec/inspirevalidator_spec.rb:35    Line contains hard tabs
+  spec/transform_spec.rb:16           Line contains hard tabs
+  spec/transform_spec.rb:17           Line contains hard tabs
+  spec/transform_spec.rb:18           Line contains hard tabs
+  spec/transform_spec.rb:19           Line contains hard tabs
+  spec/transform_spec.rb:20           Line contains hard tabs
+  spec/transform_spec.rb:26           Line contains hard tabs
+  spec/transform_spec.rb:27           Line contains hard tabs
+  spec/transform_spec.rb:28           Line contains hard tabs
+  spec/transform_spec.rb:29           Line contains hard tabs
+  spec/transform_spec.rb:30           Line contains hard tabs
+  spec/transform_spec.rb:31           Line contains hard tabs
+  spec/transform_spec.rb:32           Line contains hard tabs
+  spec/transform_spec.rb:33           Line contains hard tabs
+  spec/transform_spec.rb:34           Line contains hard tabs
+  spec/transform_spec.rb:35           Line contains hard tabs
+  spec/transform_spec.rb:36           Line contains hard tabs
+  spec/transform_spec.rb:38           Line contains hard tabs
+  spec/transform_spec.rb:39           Line contains hard tabs
+  spec/transform_spec.rb:40           Line contains hard tabs
+  spec/transform_spec.rb:41           Line contains hard tabs
+  spec/transform_spec.rb:42           Line contains hard tabs
+  spec/transform_spec.rb:43           Line contains trailing whitespace
+  spec/transform_spec.rb:43           Line contains hard tabs
+  spec/transform_spec.rb:44           Line contains hard tabs
+  spec/transform_spec.rb:45           Line contains hard tabs
+  spec/transform_spec.rb:46           Line is >80 characters (100)
+  spec/transform_spec.rb:46           Line contains hard tabs
+  spec/transform_spec.rb:47           Line contains hard tabs
+  spec/transform_spec.rb:48           Line is >80 characters (165)
+  spec/transform_spec.rb:48           Line contains hard tabs
+  spec/transform_spec.rb:49           Line contains hard tabs
+  spec/transform_spec.rb:50           Line contains hard tabs
+  spec/transform_spec.rb:51           Line contains hard tabs
+  spec/transform_spec.rb:53           Line contains hard tabs
+  spec/transform_spec.rb:54           Line contains hard tabs
+  spec/transform_spec.rb:55           Line contains hard tabs
+  spec/transform_spec.rb:56           Line contains hard tabs
+  spec/transform_spec.rb:57           Line contains hard tabs
+  spec/transform_spec.rb:58           Line contains hard tabs
+  spec/transform_spec.rb:60           Line contains hard tabs
+  spec/transform_spec.rb:61           Line contains hard tabs
+  spec/transform_spec.rb:62           Line contains hard tabs
+  spec/transform_spec.rb:63           Line contains hard tabs
+  spec/transform_spec.rb:64           Line contains hard tabs
+  spec/transform_spec.rb:65           Line contains trailing whitespace
+  spec/transform_spec.rb:65           Line contains hard tabs
+  spec/transform_spec.rb:66           Line contains hard tabs
+  spec/transform_spec.rb:67           Line contains hard tabs
+  spec/transform_spec.rb:68           Line is >80 characters (100)
+  spec/transform_spec.rb:68           Line contains hard tabs
+  spec/transform_spec.rb:69           Line contains hard tabs
+  spec/transform_spec.rb:70           Line is >80 characters (180)
+  spec/transform_spec.rb:70           Line contains hard tabs
+  spec/transform_spec.rb:71           Line contains hard tabs
+  spec/transform_spec.rb:72           Line contains hard tabs
+  spec/transform_spec.rb:73           Line contains hard tabs
+  spec/transform_spec.rb:74           Line contains hard tabs
+  spec/transform_spec.rb:75           Line contains hard tabs
+  spec/transform_spec.rb:76           Line contains hard tabs
+  spec/transform_spec.rb:77           Line contains hard tabs
+  spec/transform_spec.rb:78           Line contains hard tabs
+  spec/transform_spec.rb:79           Line contains hard tabs
+  spec/transform_spec.rb:81           Line contains hard tabs
+  spec/transform_spec.rb:82           Line is >80 characters (82)
+  spec/transform_spec.rb:82           Line contains hard tabs
+  spec/transform_spec.rb:83           Line contains hard tabs
+  spec/transform_spec.rb:84           Line contains trailing whitespace
+  spec/transform_spec.rb:84           Line contains hard tabs
+  spec/transform_spec.rb:85           Line contains hard tabs
+  spec/transform_spec.rb:87           Line contains hard tabs
+  spec/transform_spec.rb:88           Line contains hard tabs
+  spec/transform_spec.rb:89           Line contains hard tabs
+  spec/transform_spec.rb:90           Line contains hard tabs
+  spec/transform_spec.rb:91           Line contains hard tabs
+  spec/transform_spec.rb:92           Line contains trailing whitespace
+  spec/transform_spec.rb:92           Line contains hard tabs
+  spec/transform_spec.rb:93           Line contains hard tabs
+  spec/transform_spec.rb:94           Line contains hard tabs
+  spec/transform_spec.rb:95           Line contains hard tabs
+  spec/transform_spec.rb:96           Line contains trailing whitespace
+  spec/transform_spec.rb:96           Line contains hard tabs
+  spec/transform_spec.rb:97           Line contains hard tabs
+  spec/transform_spec.rb:98           Line contains hard tabs
+  spec/transform_spec.rb:100          Line contains hard tabs
+  spec/transform_spec.rb:101          Line contains hard tabs
+  spec/transform_spec.rb:102          Line contains hard tabs
+  spec/transform_spec.rb:103          Line contains hard tabs
+  spec/transform_spec.rb:104          Line contains hard tabs
+  spec/transform_spec.rb:105          Line contains hard tabs
+  spec/transform_spec.rb:106          Line contains trailing whitespace
+  spec/transform_spec.rb:106          Line contains hard tabs
+  spec/transform_spec.rb:107          Line contains hard tabs
+  spec/transform_spec.rb:114          Line contains hard tabs
+  spec/transform_spec.rb:115          Line contains hard tabs
+  spec/transform_spec.rb:116          Line contains hard tabs
+  spec/transform_spec.rb:117          Line contains hard tabs
+  spec/transform_spec.rb:119          Line is >80 characters (99)
+  spec/transform_spec.rb:119          Line contains hard tabs
+  spec/transform_spec.rb:120          Line contains hard tabs
+  spec/transform_spec.rb:121          Line contains trailing whitespace
+  spec/transform_spec.rb:121          Line contains hard tabs
+  spec/transform_spec.rb:122          Line contains hard tabs
+  spec/transform_spec.rb:123          Line contains hard tabs
+  spec/transform_spec.rb:124          Line is >80 characters (178)
+  spec/transform_spec.rb:124          Line contains hard tabs
+  spec/transform_spec.rb:125          Line contains hard tabs
+  spec/transform_spec.rb:126          Line contains hard tabs
+  spec/transform_spec.rb:127          Line contains hard tabs
+  spec/transform_spec.rb:129          Line contains hard tabs
+  spec/transform_spec.rb:130          Line contains hard tabs
+  spec/transform_spec.rb:131          Line contains hard tabs
+  spec/transform_spec.rb:132          Line contains hard tabs
+  spec/transform_spec.rb:135          Line is >80 characters (99)
+  spec/transform_spec.rb:135          Line contains hard tabs
+  spec/transform_spec.rb:136          Line contains hard tabs
+  spec/transform_spec.rb:137          Line contains trailing whitespace
+  spec/transform_spec.rb:137          Line contains hard tabs
+  spec/transform_spec.rb:138          Line contains hard tabs
+  spec/transform_spec.rb:139          Line contains hard tabs
+  spec/transform_spec.rb:140          Line is >80 characters (171)
+  spec/transform_spec.rb:140          Line contains hard tabs
+  spec/transform_spec.rb:141          Line is >80 characters (171)
+  spec/transform_spec.rb:141          Line contains hard tabs
+  spec/transform_spec.rb:142          Line contains hard tabs
+  spec/transform_spec.rb:143          Line contains hard tabs
+  spec/transform_spec.rb:144          Line contains hard tabs
+  spec/transform_spec.rb:146          Line contains hard tabs
+  spec/transform_spec.rb:147          Line contains hard tabs
+  spec/transform_spec.rb:148          Line contains hard tabs
+  spec/transform_spec.rb:149          Line contains hard tabs
+  spec/transform_spec.rb:152          Line is >80 characters (99)
+  spec/transform_spec.rb:152          Line contains hard tabs
+  spec/transform_spec.rb:153          Line contains hard tabs
+  spec/transform_spec.rb:154          Line contains trailing whitespace
+  spec/transform_spec.rb:154          Line contains hard tabs
+  spec/transform_spec.rb:155          Line contains hard tabs
+  spec/transform_spec.rb:156          Line contains hard tabs
+  spec/transform_spec.rb:157          Line is >80 characters (191)
+  spec/transform_spec.rb:157          Line contains hard tabs
+  spec/transform_spec.rb:158          Line contains hard tabs
+  spec/transform_spec.rb:159          Line contains hard tabs
+  spec/transform_spec.rb:161          Line contains hard tabs
+  spec/transform_spec.rb:162          Line contains hard tabs
+  spec/transform_spec.rb:163          Line is >80 characters (191)
+  spec/transform_spec.rb:163          Line contains hard tabs
+  spec/transform_spec.rb:164          Line contains hard tabs
+  spec/transform_spec.rb:165          Line contains hard tabs
+  spec/transform_spec.rb:167          Line contains hard tabs
+  spec/transform_spec.rb:173          Line contains hard tabs
+  spec/transform_spec.rb:174          Line contains hard tabs
+  spec/transform_spec.rb:175          Line contains hard tabs
+  spec/transform_spec.rb:176          Line contains hard tabs
+  spec/transform_spec.rb:177          Line contains hard tabs
+  spec/transform_spec.rb:178          Line contains hard tabs
+  spec/transform_spec.rb:180          Line contains hard tabs
+  spec/transform_spec.rb:181          Line contains hard tabs
+  spec/transform_spec.rb:182          Line contains hard tabs
+  spec/transform_spec.rb:183          Line contains hard tabs
+  spec/transform_spec.rb:184          Line contains hard tabs
+  spec/transform_spec.rb:185          Line contains trailing whitespace
+  spec/transform_spec.rb:185          Line contains hard tabs
+  spec/transform_spec.rb:186          Line contains hard tabs
+  spec/transform_spec.rb:187          Line contains hard tabs
+  spec/transform_spec.rb:190          Line is >80 characters (100)
+  spec/transform_spec.rb:190          Line contains hard tabs
+  spec/transform_spec.rb:191          Line contains hard tabs
+  spec/transform_spec.rb:192          Line is >80 characters (190)
+  spec/transform_spec.rb:192          Line contains hard tabs
+  spec/transform_spec.rb:193          Line is >80 characters (176)
+  spec/transform_spec.rb:193          Line contains hard tabs
+  spec/transform_spec.rb:194          Line contains hard tabs
+  spec/transform_spec.rb:195          Line contains hard tabs
+  spec/transform_spec.rb:196          Line contains hard tabs
+  spec/transform_spec.rb:197          Line contains hard tabs
+  spec/transform_spec.rb:198          Line contains hard tabs
+  spec/transform_spec.rb:199          Line contains hard tabs
+  spec/transform_spec.rb:200          Line contains hard tabs
+  spec/transform_spec.rb:201          Line contains hard tabs
+  spec/transform_spec.rb:204          Line contains hard tabs
+  spec/transform_spec.rb:205          Line contains hard tabs
+  spec/transform_spec.rb:206          Line contains hard tabs
+  spec/transform_spec.rb:207          Line contains hard tabs
+  spec/transform_spec.rb:210          Line is >80 characters (99)
+  spec/transform_spec.rb:210          Line contains hard tabs
+  spec/transform_spec.rb:211          Line contains hard tabs
+  spec/transform_spec.rb:212          Line contains trailing whitespace
+  spec/transform_spec.rb:212          Line contains hard tabs
+  spec/transform_spec.rb:213          Line contains hard tabs
+  spec/transform_spec.rb:214          Line contains hard tabs
+  spec/transform_spec.rb:215          Line contains hard tabs
+  spec/transform_spec.rb:216          Line is >80 characters (171)
+  spec/transform_spec.rb:216          Line contains hard tabs
+  spec/transform_spec.rb:217          Line is >80 characters (166)
+  spec/transform_spec.rb:217          Line contains hard tabs
+  spec/transform_spec.rb:218          Line contains hard tabs
+  spec/transform_spec.rb:219          Line contains hard tabs
+  spec/transform_spec.rb:220          Line contains hard tabs
+  spec/transform_spec.rb:222          Line contains hard tabs
+  spec/transform_spec.rb:223          Line contains hard tabs
+  spec/transform_spec.rb:224          Line contains hard tabs
+  spec/transform_spec.rb:225          Line contains hard tabs
+  spec/transform_spec.rb:228          Line is >80 characters (99)
+  spec/transform_spec.rb:228          Line contains hard tabs
+  spec/transform_spec.rb:229          Line contains hard tabs
+  spec/transform_spec.rb:230          Line contains trailing whitespace
+  spec/transform_spec.rb:230          Line contains hard tabs
+  spec/transform_spec.rb:231          Line contains hard tabs
+  spec/transform_spec.rb:232          Line contains hard tabs
+  spec/transform_spec.rb:233          Line contains hard tabs
+  spec/transform_spec.rb:234          Line is >80 characters (171)
+  spec/transform_spec.rb:234          Line contains hard tabs
+  spec/transform_spec.rb:235          Line is >80 characters (172)
+  spec/transform_spec.rb:235          Line contains hard tabs
+  spec/transform_spec.rb:236          Line contains hard tabs
+  spec/transform_spec.rb:237          Line contains hard tabs
+  spec/transform_spec.rb:238          Line contains hard tabs
+
+Class definitions require explanatory comments on preceding line (7):
+
+  lib/helper/database.rb:4            Database
+  lib/helper/inspirevalidator.rb:5    InspireValidator
+  lib/helper/transformer.rb:8         Transformer
+  lib/model/administrative_unit.rb:5  AdministrativeUnit
+  lib/model/cadastral_private.rb:5    CadastralPrivate
+  lib/model/cadastral_public.rb:5     CadastralPublic
+  lib/model/geographical_name.rb:5    GeographicalName
+
+Total Violations: 480
+

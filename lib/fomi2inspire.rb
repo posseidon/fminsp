@@ -248,6 +248,10 @@ module Fomi2inspire
     au = Transformer.new("./data/xsl/AdministrativeUnits_HU.xsl")
     pbar = ProgressBar.new("Administrative Units", AdministrativeUnit.count)
     counter = 0
+
+    au_unit = AdministrativeUnit.first
+    result = au.transform_string(au_unit.xml)
+    xml = result.to_s(:indent => false).gsub("\n", "")
     AdministrativeUnit.all.each {|record|
       result = au.transform_string(record.xml)
       xml = result.to_s(:indent => false).gsub("\n", "")
